@@ -267,7 +267,7 @@ animations = [{
 radius = 11.0
 height = 27.0
 
-[node name="PLayer" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_merdl")

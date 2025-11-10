@@ -11,7 +11,7 @@ size = Vector2(20, 275)
 
 [node name="Tutorial" type="Node2D"]
 
-[node name="PLayer" parent="." instance=ExtResource("1_c13y7")]
+[node name="Player" parent="." instance=ExtResource("1_c13y7")]
 position = Vector2(594, 256)
 
 [node name="Camera" parent="." instance=ExtResource("2_4kmhl")]
