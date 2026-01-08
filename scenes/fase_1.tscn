@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://08d7achlf0a1"]
+[gd_scene load_steps=18 format=4 uid="uid://08d7achlf0a1"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_ugoy3"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_fh0dc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/floppy_disk.tscn" id="8_o5tko"]
 [ext_resource type="PackedScene" uid="uid://bex4khrsw84mo" path="res://interactive_objects/door.tscn" id="9_m44rk"]
 [ext_resource type="PackedScene" uid="uid://bqh38qjr077u2" path="res://entities/fire.tscn" id="10_fbhx4"]
+[ext_resource type="PackedScene" uid="uid://bpivgkv828pw7" path="res://interactive_objects/lever.tscn" id="14_gfxju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbmo"]
 size = Vector2(20, 260)
@@ -106,6 +107,9 @@ position = Vector2(637, 257)
 
 [node name="Fire3" parent="." instance=ExtResource("10_fbhx4")]
 position = Vector2(650, 257)
+
+[node name="Lever" parent="." instance=ExtResource("14_gfxju")]
+position = Vector2(56, 48)
 
 [editable path="LevelEnd"]
 [editable path="Space"]

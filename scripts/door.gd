@@ -51,7 +51,6 @@ func _on_body_entered(_body: Node2D) -> void:
 func _on_body_exited(_body: Node2D) -> void:
 	can_interact = false
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "opening":
 		status = DoorState.opened

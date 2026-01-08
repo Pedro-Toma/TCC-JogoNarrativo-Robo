@@ -133,7 +133,7 @@ shape = SubResource("RectangleShape2D_c3jrh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_obs26")
-animation = &"closed"
+animation = &"opening"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
