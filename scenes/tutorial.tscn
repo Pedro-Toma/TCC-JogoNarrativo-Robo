@@ -12,7 +12,7 @@ size = Vector2(20, 275)
 [node name="Tutorial" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_c13y7")]
-position = Vector2(594, 256)
+position = Vector2(598, 256)
 
 [node name="Camera" parent="." instance=ExtResource("2_4kmhl")]
 
@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_4kmhl")
 
 [node name="door" parent="." instance=ExtResource("5_cq4me")]
 position = Vector2(632, 256)
-door_id = "fase_1_tutorial"
-next_level = "fase_1"
+door_id = "tutorial"
+next_level = "fase_central_1"
 
 [editable path="LevelEnd"]
