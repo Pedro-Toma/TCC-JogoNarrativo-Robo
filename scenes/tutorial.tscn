@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://bnlst5s3g2sgl"]
+[gd_scene load_steps=11 format=4 uid="uid://bnlst5s3g2sgl"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_c13y7"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_4kmhl"]
 [ext_resource type="TileSet" uid="uid://bhkgwg7fxrlyg" path="res://tiles/terrain.tres" id="2_8ho6b"]
 [ext_resource type="PackedScene" uid="uid://dq7ecplmf70hp" path="res://entities/level_end.tscn" id="3_ph3nu"]
 [ext_resource type="PackedScene" uid="uid://bex4khrsw84mo" path="res://interactive_objects/door.tscn" id="5_cq4me"]
+[ext_resource type="PackedScene" uid="uid://v3jqdccsckes" path="res://interactive_objects/green_cross.tscn" id="6_gbqnl"]
+[ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/floppy_disk.tscn" id="7_ckvwl"]
+[ext_resource type="PackedScene" uid="uid://b8xgx7rfglvv1" path="res://interactive_objects/spaceship.tscn" id="7_nlqja"]
+[ext_resource type="PackedScene" uid="uid://dsn443rhihxlp" path="res://interactive_objects/boots.tscn" id="9_nlqja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmhl"]
 size = Vector2(20, 275)
@@ -12,7 +16,7 @@ size = Vector2(20, 275)
 [node name="Tutorial" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_c13y7")]
-position = Vector2(598, 256)
+position = Vector2(588, 253)
 
 [node name="Camera" parent="." instance=ExtResource("2_4kmhl")]
 
@@ -32,5 +36,17 @@ shape = SubResource("RectangleShape2D_4kmhl")
 position = Vector2(632, 256)
 door_id = "tutorial"
 next_level = "fase_central_1"
+
+[node name="green_cross" parent="." instance=ExtResource("6_gbqnl")]
+position = Vector2(447, 251)
+
+[node name="Foguete" parent="." instance=ExtResource("7_nlqja")]
+position = Vector2(516, 251)
+
+[node name="FloppyDisk" parent="." instance=ExtResource("7_ckvwl")]
+position = Vector2(390, 252)
+
+[node name="boots" parent="." instance=ExtResource("9_nlqja")]
+position = Vector2(336, 253)
 
 [editable path="LevelEnd"]
