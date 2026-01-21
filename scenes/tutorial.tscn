@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bnlst5s3g2sgl"]
+[gd_scene load_steps=13 format=4 uid="uid://bnlst5s3g2sgl"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_c13y7"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_4kmhl"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/floppy_disk.tscn" id="7_ckvwl"]
 [ext_resource type="PackedScene" uid="uid://b8xgx7rfglvv1" path="res://interactive_objects/spaceship.tscn" id="7_nlqja"]
 [ext_resource type="PackedScene" uid="uid://dsn443rhihxlp" path="res://interactive_objects/boots.tscn" id="9_nlqja"]
+[ext_resource type="PackedScene" uid="uid://q6gi1cvgf74m" path="res://interactive_objects/lightning.tscn" id="10_0epgs"]
+[ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="11_g2equ"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmhl"]
 size = Vector2(20, 275)
@@ -48,5 +50,11 @@ position = Vector2(390, 252)
 
 [node name="boots" parent="." instance=ExtResource("9_nlqja")]
 position = Vector2(336, 253)
+
+[node name="lightning" parent="." instance=ExtResource("10_0epgs")]
+position = Vector2(285, 251)
+
+[node name="wrench" parent="." instance=ExtResource("11_g2equ")]
+position = Vector2(227, 250)
 
 [editable path="LevelEnd"]
