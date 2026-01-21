@@ -68,7 +68,7 @@ texture = ExtResource("8_v5dpq")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_oax5d")]
-position = Vector2(161, 50)
+position = Vector2(164, 47)
 
 [node name="LevelEnd" parent="." instance=ExtResource("9_s1htv")]
 position = Vector2(1036, 265)
@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_ktbmo")
 position = Vector2(891, 130)
 
 [node name="door" parent="." instance=ExtResource("12_i4l18")]
-position = Vector2(161, 50)
+position = Vector2(166, 48)
 door_id = "fase_1_tutorial"
 next_level = "Tutorial"
 

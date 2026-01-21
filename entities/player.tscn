@@ -292,5 +292,11 @@ debug_color = Color(0.92431134, 4.890084e-05, 0.68242043, 0.41960785)
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="RightWallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(11, 0)
+
+[node name="LeftWallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(-11, 0)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

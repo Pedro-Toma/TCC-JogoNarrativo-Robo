@@ -5,19 +5,26 @@ enum PlayerState {
 	walk,
 	jump,
 	fall,
+	wall,
 	dead
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var reload_timer: Timer = $ReloadTimer
+@onready var right_wall_detector: RayCast2D = $RightWallDetector
+@onready var left_wall_detector: RayCast2D = $LeftWallDetector
 
 const JUMP_VELOCITY = -300.0
 
 var jump_count = 0
 @export var max_jump_count = 2
 @export var max_speed = 120.0
-@export var acceleration = 400
-@export var deceleration = 400
+@export var acceleration = 800
+@export var air_acceleration = 200
+@export var deceleration = 800
+@export var air_deceleration = 100
+@export var wall_acceleration = 200
+@export var wall_jump_velocity = 100
 var direction = 0
 var status: PlayerState
 
@@ -26,9 +33,6 @@ func _ready() -> void:
 
 # verificar estado do player
 func _physics_process(delta: float) -> void:
-	
-	if not is_on_floor() && status != PlayerState.dead:
-		velocity += get_gravity() * delta
 	
 	match status:
 		PlayerState.idle:
@@ -39,6 +43,8 @@ func _physics_process(delta: float) -> void:
 			jump_state(delta)
 		PlayerState.fall:
 			fall_state(delta)
+		PlayerState.wall:
+			wall_state(delta)
 		PlayerState.dead:
 			dead_state(delta)
 	move_and_slide()
@@ -62,6 +68,11 @@ func go_to_fall_state():
 	status = PlayerState.fall
 	anim.play("fall")
 
+func go_to_wall_state():
+	status = PlayerState.wall
+	anim.play("jump")
+	velocity = Vector2.ZERO
+
 func go_to_dead_state():
 	status = PlayerState.dead
 	anim.play("dead")
@@ -71,6 +82,7 @@ func go_to_dead_state():
 	
 # estados do player
 func idle_state(delta):
+	apply_gravity(delta)
 	move(delta)
 	if Input.is_action_just_pressed("jump"):
 		go_to_jump_state()
@@ -81,6 +93,7 @@ func idle_state(delta):
 		return
 		
 func walk_state(delta):
+	apply_gravity(delta)
 	move(delta)
 	if Input.is_action_just_pressed("jump"):
 		go_to_jump_state()
@@ -96,6 +109,7 @@ func walk_state(delta):
 		return
 		
 func jump_state(delta):
+	apply_gravity(delta)
 	move(delta)
 	
 	if Input.is_action_just_pressed("jump") && can_jump():
@@ -105,7 +119,37 @@ func jump_state(delta):
 	if velocity.y > 0:
 		go_to_fall_state()
 
+func wall_state(delta):
+	
+	velocity.y += wall_acceleration * delta
+	
+	if left_wall_detector.is_colliding():
+		anim.flip_h = true
+		direction = 1
+		if Input.is_action_just_pressed("right"):
+			go_to_fall_state()
+			return
+	elif right_wall_detector.is_colliding():
+		anim.flip_h = false
+		direction = -1
+		if Input.is_action_just_pressed("left"):
+			go_to_fall_state()
+			return
+	else:
+		go_to_fall_state()
+		return
+	
+	if is_on_floor():
+		go_to_idle_state()
+		return
+	
+	if Input.is_action_just_pressed("jump"):
+		velocity.x = wall_jump_velocity * direction
+		go_to_jump_state()
+		return
+	
 func fall_state(delta):
+	apply_gravity(delta)
 	move(delta)
 	
 	if Input.is_action_just_pressed("jump") && can_jump():
@@ -119,17 +163,45 @@ func fall_state(delta):
 		else:
 			go_to_walk_state()
 		return
+		
+	var is_pushing_away = false
+	
+	if right_wall_detector.is_colliding() and Input.is_action_pressed("left"):
+		is_pushing_away = true
+	
+	if left_wall_detector.is_colliding() and Input.is_action_pressed("right"):
+		is_pushing_away = true
+		
+	if not is_pushing_away:
+		if (right_wall_detector.is_colliding() or left_wall_detector.is_colliding()) and is_on_wall():
+			go_to_wall_state()
+			return
 
-func dead_state(_delta):
-	pass
+func dead_state(delta):
+	apply_gravity(delta)
 
 func move(delta):
-	update_direction()
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * max_speed, acceleration * delta)
-		velocity.x = direction * max_speed
+	
+	var current_accel
+	var current_decel
+	
+	if is_on_floor():
+		current_accel = acceleration
+		current_decel = deceleration
 	else:
-		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		current_accel = air_acceleration
+		current_decel = air_deceleration
+		
+	update_direction()
+	
+	if direction:
+		velocity.x = move_toward(velocity.x, direction * max_speed, current_accel * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, current_decel * delta)
+
+func apply_gravity(delta):
+	if not is_on_floor() && status != PlayerState.dead:
+		velocity += get_gravity() * delta
 
 func update_direction():
 	direction = Input.get_axis("left", "right")
