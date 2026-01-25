@@ -16,8 +16,9 @@ enum PlayerState {
 
 const JUMP_VELOCITY = -300.0
 
+var has_wall_jump = false
 var jump_count = 0
-@export var max_jump_count = 2
+@export var max_jump_count = 1
 @export var max_speed = 120.0
 @export var acceleration = 800
 @export var air_acceleration = 200
@@ -30,6 +31,10 @@ var status: PlayerState
 
 func _ready() -> void:
 	go_to_idle_state()
+	if GameState.has_double_jump:
+		max_jump_count = 2
+	if GameState.has_wall_jump:
+		has_wall_jump = true
 
 # verificar estado do player
 func _physics_process(delta: float) -> void:
@@ -163,6 +168,9 @@ func fall_state(delta):
 		else:
 			go_to_walk_state()
 		return
+	
+	if !GameState.has_wall_jump:
+		return
 		
 	var is_pushing_away = false
 	
@@ -225,3 +233,9 @@ func hit_lethal_area():
 	
 func _on_reload_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+func enable_double_jump():
+	max_jump_count = 2
+
+func enable_wall_jump():
+	has_wall_jump = true

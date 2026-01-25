@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://dsn443rhihxlp"]
+[gd_scene load_steps=34 format=3 uid="uid://dsn443rhihxlp"]
 
+[ext_resource type="Script" uid="uid://boui7eg5gk4ql" path="res://scripts/boots.gd" id="1_av0vb"]
 [ext_resource type="Texture2D" uid="uid://df8k2ywswkpm8" path="res://sprites/botas.png" id="1_bbwpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbwpc"]
@@ -217,6 +218,9 @@ animations = [{
 size = Vector2(16, 14)
 
 [node name="boots" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_av0vb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p7hke")
@@ -226,3 +230,5 @@ frame_progress = 0.83211607
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gd2j3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

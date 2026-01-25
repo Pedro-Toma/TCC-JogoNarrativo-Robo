@@ -8,7 +8,8 @@ var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fa
 				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2"
 				  ]
 var door_finished = ["fase_central_2_finished_1"]
-
+var has_double_jump = false
+var has_wall_jump = false
 # Função para registrar que uma porta foi aberta
 func open_door(door_id: String):
 	door_states[door_id] = true
