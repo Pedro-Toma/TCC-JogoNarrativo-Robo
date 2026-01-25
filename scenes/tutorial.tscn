@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bnlst5s3g2sgl"]
+[gd_scene load_steps=14 format=4 uid="uid://bnlst5s3g2sgl"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_c13y7"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_4kmhl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dsn443rhihxlp" path="res://interactive_objects/boots.tscn" id="9_nlqja"]
 [ext_resource type="PackedScene" uid="uid://q6gi1cvgf74m" path="res://interactive_objects/lightning.tscn" id="10_0epgs"]
 [ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="11_g2equ"]
+[ext_resource type="PackedScene" uid="uid://dj7sstebkaara" path="res://interactive_objects/gloves.tscn" id="12_tbcdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmhl"]
 size = Vector2(20, 275)
@@ -56,5 +57,8 @@ position = Vector2(285, 251)
 
 [node name="wrench" parent="." instance=ExtResource("11_g2equ")]
 position = Vector2(227, 250)
+
+[node name="gloves" parent="." instance=ExtResource("12_tbcdj")]
+position = Vector2(181, 250)
 
 [editable path="LevelEnd"]
