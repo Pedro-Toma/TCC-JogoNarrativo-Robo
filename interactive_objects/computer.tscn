@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://de3qeugkid2b7"]
+
+[ext_resource type="Script" uid="uid://828y4u33g1ke" path="res://scripts/computer.gd" id="1_iwbm0"]
+[ext_resource type="Texture2D" uid="uid://djfqbw08q638n" path="res://sprites/computer.png" id="1_siygi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwbm0"]
+atlas = ExtResource("1_siygi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vstf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwbm0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alhoo"]
+size = Vector2(27.5, 26.5)
+
+[node name="computer" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_iwbm0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vstf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 1.25)
+shape = SubResource("RectangleShape2D_alhoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

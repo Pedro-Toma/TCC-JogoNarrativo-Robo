@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bnlst5s3g2sgl"]
+[gd_scene load_steps=16 format=4 uid="uid://bnlst5s3g2sgl"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_c13y7"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_4kmhl"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="11_g2equ"]
 [ext_resource type="PackedScene" uid="uid://dj7sstebkaara" path="res://interactive_objects/gloves.tscn" id="12_tbcdj"]
 [ext_resource type="PackedScene" uid="uid://bksuq1h2yxxu8" path="res://entities/broken_block.tscn" id="13_ej4tf"]
+[ext_resource type="PackedScene" uid="uid://de3qeugkid2b7" path="res://interactive_objects/computer.tscn" id="14_0hilk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmhl"]
 size = Vector2(20, 275)
@@ -45,24 +46,27 @@ next_level = "fase_central_1"
 position = Vector2(447, 251)
 
 [node name="Foguete" parent="." instance=ExtResource("7_nlqja")]
-position = Vector2(516, 251)
+position = Vector2(495, 251)
 
 [node name="FloppyDisk" parent="." instance=ExtResource("7_ckvwl")]
-position = Vector2(390, 252)
+position = Vector2(399, 252)
 
 [node name="boots" parent="." instance=ExtResource("9_nlqja")]
-position = Vector2(336, 253)
+position = Vector2(349, 253)
 
 [node name="lightning" parent="." instance=ExtResource("10_0epgs")]
-position = Vector2(285, 251)
+position = Vector2(300, 251)
 
 [node name="wrench" parent="." instance=ExtResource("11_g2equ")]
-position = Vector2(227, 250)
+position = Vector2(249, 252)
 
 [node name="gloves" parent="." instance=ExtResource("12_tbcdj")]
-position = Vector2(181, 250)
+position = Vector2(204, 251)
 
 [node name="brokenBlock" parent="." instance=ExtResource("13_ej4tf")]
 position = Vector2(537, 237)
+
+[node name="computer" parent="." instance=ExtResource("14_0hilk")]
+position = Vector2(495, 255)
 
 [editable path="LevelEnd"]

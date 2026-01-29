@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_ktbmo")
 position = Vector2(891, 130)
 
 [node name="door" parent="." instance=ExtResource("12_i4l18")]
-position = Vector2(166, 48)
+position = Vector2(196, 52)
 door_id = "fase_1_tutorial"
 next_level = "Tutorial"
 
