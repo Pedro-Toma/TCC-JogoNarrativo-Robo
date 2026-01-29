@@ -7,18 +7,11 @@ const lines: Array[String] = [
 	"Quer algumas dicas"
 ]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func _unhandled_input(event: InputEvent) -> void:
 
+
 	if player_in_area and event.is_action_pressed("interact"):
+		# envia posição do pc e texto para o dialog manager
 		DialogManager.start_dialog(global_position, lines)
 
 func _on_body_entered(_body: Node2D) -> void:

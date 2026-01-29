@@ -12,8 +12,10 @@ var is_dialog_active = false
 var can_advance_line = false
 
 func start_dialog(position: Vector2, lines: Array[String]):
+	# se hourve diálogo ativo, não começa outro
 	if is_dialog_active:
 		return
+	# recebe linha de texto e posição
 	dialog_lines = lines
 	text_box_position = position
 	_show_text_box()
@@ -21,6 +23,7 @@ func start_dialog(position: Vector2, lines: Array[String]):
 	is_dialog_active = true
 
 func _show_text_box():
+	# cria objeto do tipo text_box e posiciona na cena
 	text_box = text_box_scene.instantiate()
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().current_scene.add_child(text_box)
@@ -29,6 +32,7 @@ func _show_text_box():
 	can_advance_line = false
 	
 func _on_text_box_finished_displaying():
+	# após mostrar todos os caracteres da linha, avança para a próxíma linha
 	can_advance_line = true
 	
 func _unhandled_input(event):
