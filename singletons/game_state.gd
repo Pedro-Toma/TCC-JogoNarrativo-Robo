@@ -10,7 +10,7 @@ var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fa
 				  ]
 # portas concluídas (fases)
 var door_finished = ["fase_central_2_finished_1"]
-var has_double_jump = false
+var has_double_jump = true
 var has_wall_jump = false
 
 # função para registrar que uma porta foi aberta

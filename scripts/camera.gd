@@ -22,7 +22,7 @@ func intro_zoom(initial_zoom: Vector2 = Vector2(8.0, 8.0), duration: float = 2.0
 	
 	zoom = initial_zoom # zoom 8x inicial
 	var tween = create_tween()
-	tween.tween_interval(1.0) # espera 1 segundo
+	tween.tween_interval(1.5) # espera 1 segundo
 	
 	# aplica o zoom out 
 	tween.tween_property(self, "zoom", Vector2(1.0, 1.0), duration)

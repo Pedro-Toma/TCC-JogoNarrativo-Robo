@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn7gy56ay5i8g"]
+
+[sub_resource type="GDScript" id="GDScript_xa31j"]
+script/source = "extends CanvasLayer
+
+@onready var black_screen = $BlackScreen
+
+func change_scene(path_da_nova_cena: String):
+	# 1. Escurece a tela (Fade In)
+	var tween = create_tween()
+	tween.tween_property(black_screen, \"modulate:a\", 1.0, 0.5)
+	await tween.finished
+	
+	# 2. Troca a cena AGORA (Enquanto está tudo preto)
+	# O \"piscar\" acontece aqui, mas ninguém vê
+	get_tree().change_scene_to_file(path_da_nova_cena)
+	
+	# 3. Clareia a tela (Fade Out)
+	var tween_out = create_tween()
+	tween_out.tween_property(black_screen, \"modulate:a\", 0.0, 0.5)
+"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = SubResource("GDScript_xa31j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

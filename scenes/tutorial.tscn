@@ -71,4 +71,16 @@ position = Vector2(537, 237)
 [node name="computer" parent="." instance=ExtResource("14_0hilk")]
 position = Vector2(495, 255)
 
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="BlackScreen" type="ColorRect" parent="TransitionLayer"]
+z_index = 10
+anchors_preset = -1
+anchor_right = 1.225
+anchor_bottom = 1.077
+offset_bottom = -0.104003906
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [editable path="LevelEnd"]

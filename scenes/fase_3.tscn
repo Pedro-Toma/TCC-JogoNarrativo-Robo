@@ -76,7 +76,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_yqe7x")]
-position = Vector2(73, 40)
+position = Vector2(49, 290)
 
 [node name="LevelEnd" parent="." instance=ExtResource("9_2l8p5")]
 position = Vector2(1036, 265)
