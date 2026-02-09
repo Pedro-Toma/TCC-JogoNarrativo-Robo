@@ -19,7 +19,7 @@
 script = ExtResource("1_wr8iv")
 
 [node name="Player" parent="." instance=ExtResource("1_c13y7")]
-position = Vector2(1320, 44)
+position = Vector2(38, 255)
 
 [node name="Camera" parent="." instance=ExtResource("2_4kmhl")]
 limit_right = 1380
