@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kw6ivc7vxwic"
-path="res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"
+uid="uid://blmnjytyic2v2"
+path="res://.godot/imported/pixil-frame-0.png-d3883cd5fa009216ad1c73e698008a97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/teleport.png"
-dest_files=["res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"]
+source_file="res://scenes/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-d3883cd5fa009216ad1c73e698008a97.ctex"]
 
 [params]
 

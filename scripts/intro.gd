@@ -10,7 +10,7 @@ extends Control
 
 # texto a ser mostrado
 var story: Array[String] = [
-	"Ano 20XX...",
+	"Status da Nave: 100% Íntegra. Destino: Terra. Dias sem acidentes: 402.",
 ]
 
 # variáveis para controlar letra a ser escrita, tempo de intervalo

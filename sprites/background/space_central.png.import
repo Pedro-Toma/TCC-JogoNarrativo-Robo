@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lecjasip2hq2"
-path="res://.godot/imported/2-nebulae.png-05d7879a58b168823048d73298776ca3.ctex"
+uid="uid://bwm2irgmjib37"
+path="res://.godot/imported/space_central.png-416c244788dcd7b75f30e864a9c67ba1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/2-nebulae.png"
-dest_files=["res://.godot/imported/2-nebulae.png-05d7879a58b168823048d73298776ca3.ctex"]
+source_file="res://sprites/background/space_central.png"
+dest_files=["res://.godot/imported/space_central.png-416c244788dcd7b75f30e864a9c67ba1.ctex"]
 
 [params]
 

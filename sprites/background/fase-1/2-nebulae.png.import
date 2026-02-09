@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kw6ivc7vxwic"
-path="res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"
+uid="uid://lecjasip2hq2"
+path="res://.godot/imported/2-nebulae.png-493ab7228121c4e5ded13a87bc047327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/teleport.png"
-dest_files=["res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"]
+source_file="res://sprites/background/fase-1/2-nebulae.png"
+dest_files=["res://.godot/imported/2-nebulae.png-493ab7228121c4e5ded13a87bc047327.ctex"]
 
 [params]
 

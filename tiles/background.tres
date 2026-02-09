@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://c25dqvjiuypsa"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://c25dqvjiuypsa"]
 
 [ext_resource type="Texture2D" uid="uid://cjlki17gysq8h" path="res://sprites/Tileset.png" id="1_1uk1s"]
+[ext_resource type="Texture2D" uid="uid://bdha6m1y1dibb" path="res://sprites/window.png" id="2_2k0q0"]
 [ext_resource type="Texture2D" uid="uid://5s8h8gnif4yo" path="res://sprites/Tileset_2.png" id="2_2m7og"]
 [ext_resource type="Texture2D" uid="uid://cbm8800omenqe" path="res://sprites/marsh-sci-fi/scifi/32x32/scifi_boxes_4a1a.png" id="2_roale"]
 
@@ -166,6 +167,18 @@ texture = ExtResource("1_1uk1s")
 13:1/0 = 0
 13:1/0/texture_origin = Vector2i(8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00yxh"]
+texture = ExtResource("2_2k0q0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k0q0"]
 texture = ExtResource("2_roale")
 0:0/0 = 0
@@ -270,3 +283,4 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 sources/9 = SubResource("TileSetAtlasSource_8t5ty")
 sources/3 = SubResource("TileSetAtlasSource_2k0q0")
+sources/1 = SubResource("TileSetAtlasSource_00yxh")

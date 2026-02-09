@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kw6ivc7vxwic"
-path="res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"
+uid="uid://c2bmhtudg8ci7"
+path="res://.godot/imported/1-stars.png-f335261073e215a5eea1e7cadb0c0246.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/teleport.png"
-dest_files=["res://.godot/imported/teleport.png-3870fa8a37909d644b87d208ef36de88.ctex"]
+source_file="res://sprites/background/fase-1/1-stars.png"
+dest_files=["res://.godot/imported/1-stars.png-f335261073e215a5eea1e7cadb0c0246.ctex"]
 
 [params]
 

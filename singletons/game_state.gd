@@ -6,12 +6,16 @@ extends Node
 var door_states = {}
 # portas trancadas
 var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fase_central_1_bloqueada_3",
-				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2"
+				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2","fase_central_3_bloqueada_1",
 				  ]
 # portas concluídas (fases)
-var door_finished = ["fase_central_2_finished_1"]
-var has_double_jump = true
+var door_finished = ["fase_central_2_finished_1", "fase_central_3_finished_1", "fase_central_3_finished_2",
+					 "fase_central_4_finished_1", "fase_central_4_finished_2", "fase_central_4_finished_3",
+					 "fase_central_5_finished_1", "fase_central_5_finished_2", "fase_central_5_finished_3",
+					 "fase_central_5_finished_4"]
+var has_double_jump = false
 var has_wall_jump = false
+var fase_central_atual = 0
 
 # função para registrar que uma porta foi aberta
 func open_door(door_id: String):

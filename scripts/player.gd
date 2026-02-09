@@ -16,6 +16,7 @@ enum PlayerState {
 
 const JUMP_VELOCITY = -300.0
 
+var pode_mover: bool = true
 var has_wall_jump = false
 var jump_count = 0
 @export var max_jump_count = 1
@@ -52,7 +53,10 @@ func _physics_process(delta: float) -> void:
 			wall_state(delta)
 		PlayerState.dead:
 			dead_state(delta)
-	move_and_slide()
+	if pode_mover:
+		move_and_slide()
+	else:
+		velocity = Vector2.ZERO
 	
 # transição de estados
 func go_to_idle_state():

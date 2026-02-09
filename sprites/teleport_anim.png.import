@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c78jh82y0w8gf"
-path="res://.godot/imported/4-dust.png-173642f1d6ac46c1afca05db212fbd0c.ctex"
+uid="uid://bh6fo0l0ewhba"
+path="res://.godot/imported/teleport_anim.png-6e4821231731ee65658c4b90af7a76b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/4-dust.png"
-dest_files=["res://.godot/imported/4-dust.png-173642f1d6ac46c1afca05db212fbd0c.ctex"]
+source_file="res://sprites/teleport_anim.png"
+dest_files=["res://.godot/imported/teleport_anim.png-6e4821231731ee65658c4b90af7a76b7.ctex"]
 
 [params]
 

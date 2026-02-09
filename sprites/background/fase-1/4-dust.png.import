@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5u2vta2p21pu"
-path="res://.godot/imported/3-planet.png-3f33190556cd6fe1694f5fdfbf6a1cdb.ctex"
+uid="uid://c78jh82y0w8gf"
+path="res://.godot/imported/4-dust.png-9722b395abb15c57fc4ae3e56d0dd366.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/3-planet.png"
-dest_files=["res://.godot/imported/3-planet.png-3f33190556cd6fe1694f5fdfbf6a1cdb.ctex"]
+source_file="res://sprites/background/fase-1/4-dust.png"
+dest_files=["res://.godot/imported/4-dust.png-9722b395abb15c57fc4ae3e56d0dd366.ctex"]
 
 [params]
 
