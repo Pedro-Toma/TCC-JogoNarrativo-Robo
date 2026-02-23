@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
-
+signal collected
 
 var is_collected = false
 
@@ -20,4 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 			hide() # esconde item da interface
 			set_deferred("monitoring", false) # não monitora área para evitar bugs
 			await audio.finished
+			collected.emit()
 			queue_free() # libera item do jogo

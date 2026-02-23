@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://jevsfbgbs0fd"]
+[gd_scene load_steps=20 format=3 uid="uid://jevsfbgbs0fd"]
 
 [ext_resource type="Texture2D" uid="uid://brnhpxtabps8u" path="res://sprites/leaf.png" id="1_v2ypo"]
+[ext_resource type="Script" uid="uid://c4vu84vrrklxy" path="res://scripts/leaf.gd" id="1_yw1dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw1dk"]
 size = Vector2(13, 13)
@@ -118,7 +119,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="leaf" type="Area2D"]
+[node name="leaf" type="Area2D" groups=["RequiredItems"]]
+script = ExtResource("1_yw1dk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
@@ -128,3 +130,5 @@ shape = SubResource("RectangleShape2D_yw1dk")
 sprite_frames = SubResource("SpriteFrames_vje7v")
 autoplay = "default"
 frame_progress = 0.08331844
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

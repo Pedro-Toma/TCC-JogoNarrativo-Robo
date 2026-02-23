@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bnlst5s3g2sgl"]
+[gd_scene load_steps=20 format=4 uid="uid://bnlst5s3g2sgl"]
 
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="1_c13y7"]
 [ext_resource type="Script" uid="uid://cf5t36q6p7sc0" path="res://scripts/tutorial.gd" id="1_wr8iv"]
@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bndomvo3q1ocr" path="res://sprites/background/tutorial/4-planet.png" id="9_wr8iv"]
 [ext_resource type="PackedScene" uid="uid://dj7sstebkaara" path="res://interactive_objects/gloves.tscn" id="12_tbcdj"]
 [ext_resource type="PackedScene" uid="uid://cpcxj4n2g2kda" path="res://interactive_objects/teleport.tscn" id="14_0hilk"]
+[ext_resource type="PackedScene" uid="uid://q6gi1cvgf74m" path="res://interactive_objects/lightning.tscn" id="15_cmspm"]
 [ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="16_e13mp"]
+[ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="16_ikfo1"]
+[ext_resource type="PackedScene" uid="uid://jevsfbgbs0fd" path="res://interactive_objects/leaf.tscn" id="17_dwom6"]
 [ext_resource type="PackedScene" uid="uid://18k224a7edad" path="res://entities/space.tscn" id="17_vrdqu"]
+[ext_resource type="PackedScene" uid="uid://b8xgx7rfglvv1" path="res://interactive_objects/spaceship.tscn" id="18_bl2xa"]
+[ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/floppy_disk.tscn" id="18_ikfo1"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_wr8iv")
@@ -76,8 +81,12 @@ visible = false
 [node name="BlackScreen" type="ColorRect" parent="TransitionLayer"]
 z_index = 10
 anchors_preset = -1
-anchor_right = 1.225
+anchor_left = -0.030000001
+anchor_top = -0.048
+anchor_right = 2.3230002
 anchor_bottom = 1.077
+offset_top = -0.10400009
+offset_right = 0.1998291
 offset_bottom = -0.104003906
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
@@ -134,7 +143,29 @@ position = Vector2(31, 0)
 position = Vector2(1351, 48)
 collision_layer = 16
 collision_mask = 2
-central_level = "fase_central_1"
-tp_ativo = true
+central_level = "after_tutorial_intro"
+
+[node name="lightning" parent="." instance=ExtResource("15_cmspm")]
+position = Vector2(156, 252)
+collision_layer = 16
+collision_mask = 2
+
+[node name="wrench" parent="." instance=ExtResource("16_ikfo1")]
+position = Vector2(115, 253)
+collision_layer = 16
+collision_mask = 2
+
+[node name="leaf" parent="." instance=ExtResource("17_dwom6")]
+position = Vector2(193, 253)
+collision_layer = 16
+collision_mask = 2
+
+[node name="Foguete" parent="." instance=ExtResource("18_bl2xa")]
+position = Vector2(1109, 189)
+collision_layer = 16
+collision_mask = 2
+
+[node name="FloppyDisk" parent="." instance=ExtResource("18_ikfo1")]
+position = Vector2(242, 252)
 
 [editable path="Space"]

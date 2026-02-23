@@ -73,5 +73,19 @@ time = 3
 [node name="Target" parent="moving_platform2" index="1"]
 position = Vector2(0, 149)
 
+[node name="Transition Layer" type="CanvasLayer" parent="."]
+
+[node name="blackScreen" type="ColorRect" parent="Transition Layer"]
+anchors_preset = -1
+anchor_left = -0.032
+anchor_top = -0.060000002
+anchor_right = 1.023
+anchor_bottom = 1.023
+offset_left = 0.20000076
+offset_top = 0.12000084
+offset_right = 0.2000122
+offset_bottom = -0.0960083
+color = Color(0, 0, 0, 1)
+
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

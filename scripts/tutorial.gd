@@ -10,7 +10,7 @@ func _ready():
 	
 	var tween = create_tween()
 	tween.tween_interval(0.5)
-	tween.tween_property(black_screen, "modulate:a", 0.0, 1.5)
+	tween.tween_property(black_screen, "modulate:a", 0.0, 10)
 	tween.tween_callback(transition_layer.queue_free)
 	
 	var camera = get_viewport().get_camera_2d()

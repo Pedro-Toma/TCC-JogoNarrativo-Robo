@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs283xuuior0b"]
+
+[ext_resource type="PackedScene" uid="uid://m02uolqhguxc" path="res://scenes/intro.tscn" id="1_2cxry"]
+
+[node name="Intro" instance=ExtResource("1_2cxry")]
+next_scene = "fase_central_1"
+story = Array[String](["Começa o jogo."])

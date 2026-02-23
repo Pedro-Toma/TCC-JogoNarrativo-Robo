@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8xgx7rfglvv1"]
+[gd_scene load_steps=27 format=3 uid="uid://b8xgx7rfglvv1"]
 
 [ext_resource type="Texture2D" uid="uid://co1yg5f7igqpt" path="res://sprites/foguete.png" id="1_a84be"]
+[ext_resource type="Script" uid="uid://bd3my4m3lttsw" path="res://scripts/spaceship.gd" id="1_cw0gn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a84be"]
 atlas = ExtResource("1_a84be")
@@ -167,7 +168,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go2lh"]
 size = Vector2(14, 14)
 
-[node name="Foguete" type="Area2D"]
+[node name="Foguete" type="Area2D" groups=["RequiredItems"]]
+script = ExtResource("1_cw0gn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k6at4")
@@ -176,3 +178,5 @@ frame_progress = 0.13899443
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_go2lh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

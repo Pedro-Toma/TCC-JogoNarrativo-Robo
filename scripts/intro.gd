@@ -5,11 +5,11 @@ extends Control
 @export var punctuation_time = 0.3
 @export var space_time = 0.2
 @export var between_sentences_time = 1.0
-
+@export var next_scene: String
 @onready var label = $Label
 
 # texto a ser mostrado
-var story: Array[String] = [
+@export_multiline var story: Array[String] = [
 	"Status da Nave: 100% Íntegra. Destino: Terra. Dias sem acidentes: 402.",
 ]
 
@@ -83,7 +83,7 @@ func next_sentence():
 	display_sentence()
 
 func go_to_game():
-	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
 # Opcional: Permitir pular com Espaço/Enter
 func _input(event):

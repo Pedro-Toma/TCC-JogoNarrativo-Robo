@@ -30,6 +30,8 @@ func _ready():
 		if anim.animation == "closing":
 			anim.play("locked")
 			status = DoorState.locked
+			if GameState.has_method("lock_door"):
+				GameState.lock_door(door_id)
 	# verificar se porta está trancada no gerenciador de estados do jogo
 	elif GameState.is_door_locked(door_id):
 		status = DoorState.locked

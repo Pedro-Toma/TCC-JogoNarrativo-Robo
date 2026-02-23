@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://8erf510ss2te"]
+[gd_scene load_steps=13 format=3 uid="uid://8erf510ss2te"]
 
+[ext_resource type="Script" uid="uid://b3xq0opmplqk0" path="res://scripts/wrench.gd" id="1_7dwny"]
 [ext_resource type="Texture2D" uid="uid://bse1pbdfj1bv4" path="res://sprites/chave_inglesa.png" id="1_xp705"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dwny"]
@@ -69,7 +70,8 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="wrench" type="Area2D"]
+[node name="wrench" type="Area2D" groups=["RequiredItems"]]
+script = ExtResource("1_7dwny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
@@ -79,3 +81,5 @@ shape = SubResource("RectangleShape2D_7dwny")
 sprite_frames = SubResource("SpriteFrames_qbbal")
 autoplay = "default"
 frame_progress = 0.3391661
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

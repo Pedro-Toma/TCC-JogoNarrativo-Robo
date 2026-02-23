@@ -6,8 +6,18 @@ extends Area2D
 
 var can_interact = false
 var player_ref = null
+var total_items: int = 0
+var items_collected: int = 0
 
 func _ready():
+	var items = get_tree().get_nodes_in_group("RequiredItems")
+	total_items = items.size()
+	print("O Godot achou ", total_items, " itens na fase!")
+	if total_items == 0:
+		activate_teleport()
+	else:
+		for item in items:
+			item.collected.connect(_on_item_collected)
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -15,11 +25,21 @@ func _input(event: InputEvent) -> void:
 		player_ref.pode_mover = false
 		anim.play("on")
 
+func _on_item_collected():
+	items_collected += 1
+	print("Coletou 1 item")
+	
+	if items_collected >= total_items:
+		activate_teleport()
+
+func activate_teleport():
+	tp_ativo = true
+
 func load_next_scene():
 	get_tree().change_scene_to_file("res://scenes/" + central_level + ".tscn")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player": 
+	if body.is_in_group("Player"): 
 		player_ref = body
 		if tp_ativo:
 			can_interact = true

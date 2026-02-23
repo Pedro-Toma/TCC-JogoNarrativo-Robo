@@ -41,3 +41,7 @@ func is_door_finished(door_id: String) -> bool:
 	if door_id in door_finished:
 		return true
 	return false
+	
+func lock_door(door_id: String):
+	if not door_id in door_locked:
+		door_locked.append(door_id)

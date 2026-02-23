@@ -92,8 +92,8 @@ shape = SubResource("RectangleShape2D_o5tko")
 position = Vector2(511, 8)
 shape = SubResource("RectangleShape2D_6cnnc")
 
-[node name="Player" parent="." instance=ExtResource("1_ugoy3")]
-position = Vector2(855, 257)
+[node name="Player" parent="." groups=["RequiredItems"] instance=ExtResource("1_ugoy3")]
+position = Vector2(862, 32)
 
 [node name="lightning" parent="." instance=ExtResource("11_usou6")]
 position = Vector2(167, 78)
