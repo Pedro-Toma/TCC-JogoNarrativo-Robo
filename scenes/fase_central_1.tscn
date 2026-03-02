@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ch551uwyq6u65"]
+[gd_scene load_steps=14 format=4 uid="uid://ch551uwyq6u65"]
 
 [ext_resource type="Script" uid="uid://b2dkxp21xykth" path="res://scripts/fase_central_1.gd" id="1_aejkh"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="1_vjsf0"]
@@ -10,6 +10,9 @@
 [ext_resource type="TileSet" uid="uid://c25dqvjiuypsa" path="res://tiles/background.tres" id="4_kj83s"]
 [ext_resource type="PackedScene" uid="uid://de3qeugkid2b7" path="res://interactive_objects/computer.tscn" id="8_bgg1p"]
 [ext_resource type="PackedScene" uid="uid://dobawyvt6yyyl" path="res://entities/moving_platform.tscn" id="9_rw5fy"]
+[ext_resource type="Texture2D" uid="uid://cl31b2gajfvif" path="res://sprites/phase_001_plate.png" id="11_kj83s"]
+[ext_resource type="PackedScene" uid="uid://b68g2v5no0a0w" path="res://interactive_objects/blue_button.tscn" id="12_bgg1p"]
+[ext_resource type="Texture2D" uid="uid://b0lrvp5uho0u" path="res://sprites/phase_red.png" id="14_84i6y"]
 
 [node name="fase_central_1" type="Node2D"]
 script = ExtResource("1_aejkh")
@@ -34,19 +37,19 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAAEAAwAAAAEAAAABAAAAAwABAAA
 tile_set = ExtResource("4_kj83s")
 
 [node name="door4" parent="." instance=ExtResource("2_cbsbo")]
-position = Vector2(575, 81)
+position = Vector2(566, 82)
 door_id = "fase_central_1_bloqueada_3"
 
 [node name="door3" parent="." instance=ExtResource("2_cbsbo")]
-position = Vector2(33, 80)
+position = Vector2(39, 82)
 door_id = "fase_central_1_bloqueada_2"
 
 [node name="door2" parent="." instance=ExtResource("2_cbsbo")]
-position = Vector2(32, 224)
+position = Vector2(39, 226)
 door_id = "fase_central_1_bloqueada_1"
 
 [node name="door" parent="." instance=ExtResource("2_cbsbo")]
-position = Vector2(576, 224)
+position = Vector2(566, 226)
 door_id = "fase_1"
 next_level = "fase_1"
 
@@ -58,6 +61,7 @@ position = Vector2(304, 274)
 
 [node name="computer" parent="." instance=ExtResource("8_bgg1p")]
 position = Vector2(302, 116)
+unlock_door = "fase_1"
 
 [node name="moving_platform" parent="." instance=ExtResource("9_rw5fy")]
 position = Vector2(159, 113)
@@ -74,6 +78,7 @@ time = 3
 position = Vector2(0, 149)
 
 [node name="Transition Layer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="blackScreen" type="ColorRect" parent="Transition Layer"]
 anchors_preset = -1
@@ -86,6 +91,25 @@ offset_top = 0.12000084
 offset_right = 0.2000122
 offset_bottom = -0.0960083
 color = Color(0, 0, 0, 1)
+
+[node name="fase_001_plate" type="Sprite2D" parent="."]
+position = Vector2(566, 196)
+texture = ExtResource("11_kj83s")
+
+[node name="fase_002_plate" type="Sprite2D" parent="."]
+position = Vector2(39, 196)
+texture = ExtResource("14_84i6y")
+
+[node name="fase_003_plate" type="Sprite2D" parent="."]
+position = Vector2(39, 52)
+texture = ExtResource("14_84i6y")
+
+[node name="fase_004_plate" type="Sprite2D" parent="."]
+position = Vector2(566, 52)
+texture = ExtResource("14_84i6y")
+
+[node name="BlueButton" parent="." instance=ExtResource("12_bgg1p")]
+position = Vector2(502, 282)
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

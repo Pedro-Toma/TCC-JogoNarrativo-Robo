@@ -12,7 +12,6 @@ var items_collected: int = 0
 func _ready():
 	var items = get_tree().get_nodes_in_group("RequiredItems")
 	total_items = items.size()
-	print("O Godot achou ", total_items, " itens na fase!")
 	if total_items == 0:
 		activate_teleport()
 	else:

@@ -44,6 +44,8 @@ func _ready():
 	else:
 		status = DoorState.closed
 		anim.play("closed")
+	if GameState.has_signal("door_unlocked"):
+		GameState.door_unlocked.connect(_on_door_unlocked)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && can_interact == true:
@@ -78,3 +80,9 @@ func _on_body_entered(_body: Node2D) -> void:
 func _on_body_exited(_body: Node2D) -> void:
 	# saiu da área, não pode interagir
 	can_interact = false
+
+func _on_door_unlocked(unlocked_id: String) -> void:
+	if unlocked_id == door_id:
+		if status == DoorState.locked:
+			status = DoorState.closed
+			anim.play("closed")

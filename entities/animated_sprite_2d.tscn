@@ -1,0 +1,154 @@
+[gd_scene load_steps=21 format=3 uid="uid://7oe0jfo0gy3f"]
+
+[ext_resource type="Texture2D" uid="uid://jeudgm88srss" path="res://sprites/001_red_green.png" id="1_iwpub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dnlf"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(123, 57, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kb54"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(0, 0, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8lx"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(0, 0, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwr3m"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(41, 0, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rexpb"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(82, 0, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h0pq"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(123, 0, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlk1"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(0, 19, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53pg1"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(41, 19, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78ya"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(82, 19, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0wx4"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(123, 19, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqhaj"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(0, 38, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmuld"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(41, 38, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2ace"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(82, 38, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y2le"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(123, 38, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq3er"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(0, 57, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaa45"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(41, 57, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j71lm"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(82, 57, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dqbh"]
+atlas = ExtResource("1_iwpub")
+region = Rect2(123, 57, 41, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kj6y7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dnlf")
+}],
+"loop": false,
+"name": &"concluded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kb54")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no8lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwr3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rexpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h0pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvlk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53pg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n78ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0wx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqhaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmuld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2ace")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y2le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq3er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaa45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j71lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dqbh")
+}],
+"loop": false,
+"name": &"transition",
+"speed": 15.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kj6y7")
+animation = &"transition"
+autoplay = "default"
+frame = 15
+frame_progress = 1.0

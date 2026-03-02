@@ -10,7 +10,7 @@
 size = Vector2(32.8125, 32.71875)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ygw8"]
-atlas = ExtResource("2_bpwx3")
+atlas = ExtResource("3_3yomp")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpwx3"]
@@ -61,8 +61,8 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("2_bpwx3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8he6p"]
-atlas = ExtResource("3_3yomp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kquev"]
+atlas = ExtResource("2_bpwx3")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s33rh"]
@@ -174,7 +174,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8he6p")
+"texture": SubResource("AtlasTexture_kquev")
 }],
 "loop": false,
 "name": &"finished",
@@ -249,7 +249,7 @@ shape = SubResource("RectangleShape2D_c3jrh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_obs26")
-animation = &"opened"
+animation = &"finished"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,16 +1,25 @@
 extends Control
 
 # variáveis para controlar o tempo de escrita dos caracteres
-@export var letter_time = 0.1
-@export var punctuation_time = 0.3
-@export var space_time = 0.2
+@export var letter_time = 0.08
+@export var punctuation_time = 0.2
+@export var space_time = 0.1
 @export var between_sentences_time = 1.0
 @export var next_scene: String
 @onready var label = $Label
 
 # texto a ser mostrado
 @export_multiline var story: Array[String] = [
-	"Status da Nave: 100% Íntegra. Destino: Terra. Dias sem acidentes: 402.",
+	"A energia da Terra está acabando.",
+	"À beira da extinção, descobrimos na galáxia vizinha uma fonte de energia impossível:
+energia infinita em forma de matéria.",
+	"Tangível. Coletável. Estável.",
+	"Você faz parte da última missão de coleta.",
+	"Uma nave. Uma tripulação.",
+	"A unidade R.E.D. e os robôs operados pela IA Bellatrix.",
+	"Sem margem de erro.",
+	"Sem segunda chance.",
+	"Traga a substância… ou a Terra apaga de vez.",
 ]
 
 # variáveis para controlar letra a ser escrita, tempo de intervalo

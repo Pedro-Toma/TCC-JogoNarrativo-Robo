@@ -1,5 +1,7 @@
 extends Node
 
+signal door_unlocked(id: String)
+
 # dicionário para armazenar o estado das portas
 # chave: id da porta, valor: estado da porta (true = aberta)
 # Valor: Estado da porta (bool, true para aberta)
@@ -7,7 +9,7 @@ var door_states = {}
 # portas trancadas
 var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fase_central_1_bloqueada_3",
 				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2","fase_central_3_bloqueada_1",
-				  ]
+				   "fase_1"]
 # portas concluídas (fases)
 var door_finished = ["fase_central_2_finished_1", "fase_central_3_finished_1", "fase_central_3_finished_2",
 					 "fase_central_4_finished_1", "fase_central_4_finished_2", "fase_central_4_finished_3",
@@ -45,3 +47,8 @@ func is_door_finished(door_id: String) -> bool:
 func lock_door(door_id: String):
 	if not door_id in door_locked:
 		door_locked.append(door_id)
+
+func unlock_door(door_id: String):
+	if door_id in door_locked:
+		door_locked.erase(door_id)
+		door_unlocked.emit(door_id)
