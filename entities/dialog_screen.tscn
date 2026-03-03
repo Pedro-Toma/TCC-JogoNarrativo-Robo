@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://tlk8vmwo2t2d"]
+
+[ext_resource type="Script" uid="uid://boa0i2766jm46" path="res://scripts/dialog_screen.gd" id="1_t2e62"]
+[ext_resource type="Texture2D" uid="uid://cbbdyvxge5xoq" path="res://sprites/bella_face.png" id="2_8ryl4"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="3_8kmho"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_32udp"]
+line_spacing = 0.0
+font = ExtResource("3_8kmho")
+font_size = 20
+shadow_color = Color(0, 0, 0, 0.6)
+
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("name_label", "dialog_label", "face_rect", "subtitle_label")]
+custom_minimum_size = Vector2(320, 60)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -62.0
+offset_right = 247.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_t2e62")
+name_label = NodePath("Background/HContainer/VContainer/HBoxContainer/Name")
+dialog_label = NodePath("Background/HContainer/VContainer/Dialog")
+face_rect = NodePath("Background/HContainer/Faceset")
+subtitle_label = NodePath("Background/HContainer/VContainer/HBoxContainer/Subtitle")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="HContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 0.05
+anchor_right = 0.99100006
+anchor_bottom = 0.95000005
+offset_left = 0.119999886
+offset_right = -0.120025635
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Faceset" type="TextureRect" parent="Background/HContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_8ryl4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="Background/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Background/HContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mago"
+label_settings = SubResource("LabelSettings_32udp")
+horizontal_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Background/HContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Subtitle" type="Label" parent="Background/HContainer/VContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8kmho")
+theme_override_font_sizes/font_size = 11
+text = "Pressione Enter para pular"
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_8kmho")
+text = "hvdawjhgdva"
+scroll_following_visible_characters = true

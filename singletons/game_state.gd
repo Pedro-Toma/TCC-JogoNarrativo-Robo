@@ -9,7 +9,7 @@ var door_states = {}
 # portas trancadas
 var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fase_central_1_bloqueada_3",
 				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2","fase_central_3_bloqueada_1",
-				   "fase_1"]
+				   "phase_1", "phase_2", "phase_3", "phase_4"]
 # portas concluídas (fases)
 var door_finished = ["fase_central_2_finished_1", "fase_central_3_finished_1", "fase_central_3_finished_2",
 					 "fase_central_4_finished_1", "fase_central_4_finished_2", "fase_central_4_finished_3",

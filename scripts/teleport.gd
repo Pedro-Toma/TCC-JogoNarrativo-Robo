@@ -3,6 +3,7 @@ extends Area2D
 @export var central_level = ""
 @export var tp_ativo: bool = false
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var can_interact = false
 var player_ref = null
@@ -15,6 +16,7 @@ func _ready():
 	if total_items == 0:
 		activate_teleport()
 	else:
+		anim.play("broken")
 		for item in items:
 			item.collected.connect(_on_item_collected)
 	pass
@@ -22,6 +24,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && can_interact == true:
 		player_ref.pode_mover = false
+		audio.play()
 		anim.play("on")
 
 func _on_item_collected():
@@ -32,6 +35,7 @@ func _on_item_collected():
 		activate_teleport()
 
 func activate_teleport():
+	anim.play("default")
 	tp_ativo = true
 
 func load_next_scene():

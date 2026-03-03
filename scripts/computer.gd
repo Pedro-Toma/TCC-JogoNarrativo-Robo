@@ -9,11 +9,24 @@ var already_interacted = false
 @onready var block_message: Sprite2D = $BlockMessage
 @export var unlock_door: String = ""
 
-const central_0: Array[String] = [
+const central_1: Array[String] = [
 	"ATENÇÃO: Detectamos uma anomalia crítica nos estabilizadores de gravidade do setor 7.",
 	"Quer algumas dicas"
 ]
-const central_1: Array[String] = [
+
+const central_2: Array[String] = [
+	"OI"
+]
+
+const central_3: Array[String] = [
+	"OI"
+]
+
+const central_4: Array[String] = [
+	"OI"
+]
+
+const central_5: Array[String] = [
 	"OI"
 ]
 
@@ -28,9 +41,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		match GameState.fase_central_atual:
 			1: 
-				lines = central_0
-			2:
 				lines = central_1
+			2:
+				lines = central_2
+			3:
+				lines = central_3
+			4:
+				lines = central_4
+			5:
+				lines = central_5
 		
 		is_dialog_active = true 
 		

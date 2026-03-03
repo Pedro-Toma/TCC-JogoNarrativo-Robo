@@ -7,18 +7,18 @@ extends Control
 @export var between_sentences_time = 1.0
 @export var next_scene: String
 @onready var label = $Label
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 # texto a ser mostrado
 @export_multiline var story: Array[String] = [
-	"A energia da Terra está acabando.",
-	"À beira da extinção, descobrimos na galáxia vizinha uma fonte de energia impossível:
-energia infinita em forma de matéria.",
-	"Tangível. Coletável. Estável.",
-	"Você faz parte da última missão de coleta.",
-	"Uma nave. Uma tripulação.",
-	"A unidade R.E.D. e os robôs operados pela IA Bellatrix.",
-	"Sem margem de erro.",
-	"Sem segunda chance.",
+#	"A energia da Terra está acabando.",
+	"À beira da extinção, descobrimos na galáxia vizinha uma fonte de energia impossível: energia infinita em forma de matéria.",
+#	"Tangível. Coletável. Estável.",
+#	"Você faz parte da última missão de coleta.",
+#	"Uma nave. Uma tripulação.",
+#	"A unidade R.E.D. e os robôs operados pela IA Bellatrix.",
+#	"Sem margem de erro.",
+#	"Sem segunda chance.",
 	"Traga a substância… ou a Terra apaga de vez.",
 ]
 
@@ -60,6 +60,7 @@ func display_sentence():
 	write_sentence()
 	
 func write_sentence():
+	audio.play()
 	# verifica quantos caracteres tem na frase
 	var total_characters = label.get_total_character_count()
 	
@@ -85,6 +86,7 @@ func write_sentence():
 		await get_tree().create_timer(between_sentences_time).timeout
 	else:
 		await get_tree().create_timer(0.5).timeout
+	audio.stop()
 	next_sentence()
 
 func next_sentence():
@@ -94,9 +96,8 @@ func next_sentence():
 func go_to_game():
 	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
-# Opcional: Permitir pular com Espaço/Enter
 func _input(event):
-	if event.is_action_pressed("interact") and not skipped:
+	if event.is_action_pressed("skip") and not skipped:
 			skipped = true
 			
 			letter_time = 0.0

@@ -1,8 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpcxj4n2g2kda"]
+[gd_scene load_steps=22 format=3 uid="uid://cpcxj4n2g2kda"]
 
 [ext_resource type="Script" uid="uid://c78msk3pi0lo8" path="res://scripts/teleport.gd" id="1_q3id4"]
 [ext_resource type="Texture2D" uid="uid://kw6ivc7vxwic" path="res://sprites/teleport.png" id="2_668fb"]
+[ext_resource type="Texture2D" uid="uid://d2rurtbxk2xy4" path="res://sprites/broken_teleport.png" id="2_sng6t"]
 [ext_resource type="Texture2D" uid="uid://bh6fo0l0ewhba" path="res://sprites/teleport_anim.png" id="3_bierd"]
+[ext_resource type="AudioStream" uid="uid://c8qhinouguo1i" path="res://sounds/teleport_audio_2.mp3" id="5_26wjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06enb"]
+atlas = ExtResource("2_sng6t")
+region = Rect2(0, 0, 45, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_668fb"]
 atlas = ExtResource("2_668fb")
@@ -58,6 +64,14 @@ region = Rect2(135, 120, 45, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bierd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06enb")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_668fb")
@@ -119,10 +133,15 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_bierd")
 animation = &"on"
 autoplay = "default"
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_q3id4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_26wjl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

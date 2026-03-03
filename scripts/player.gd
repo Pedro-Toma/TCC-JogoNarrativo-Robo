@@ -13,6 +13,8 @@ enum PlayerState {
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var right_wall_detector: RayCast2D = $RightWallDetector
 @onready var left_wall_detector: RayCast2D = $LeftWallDetector
+@onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
+@onready var walk_audio: AudioStreamPlayer2D = $WalkAudio
 
 const JUMP_VELOCITY = -300.0
 
@@ -22,9 +24,9 @@ var jump_count = 0
 @export var max_jump_count = 1
 @export var max_speed = 120.0
 @export var acceleration = 800
-@export var air_acceleration = 200
+@export var air_acceleration = 400
 @export var deceleration = 800
-@export var air_deceleration = 100
+@export var air_deceleration = 200
 @export var wall_acceleration = 200
 @export var wall_jump_velocity = 100
 var direction = 0
@@ -40,6 +42,12 @@ func _ready() -> void:
 # verificar estado do player
 func _physics_process(delta: float) -> void:
 	
+	if not pode_mover:
+		velocity.x = 0
+		apply_gravity(delta)
+		anim.play("idle") 
+		return
+	
 	match status:
 		PlayerState.idle:
 			idle_state(delta)
@@ -53,10 +61,7 @@ func _physics_process(delta: float) -> void:
 			wall_state(delta)
 		PlayerState.dead:
 			dead_state(delta)
-	if pode_mover:
-		move_and_slide()
-	else:
-		velocity = Vector2.ZERO
+	move_and_slide()
 	
 # transição de estados
 func go_to_idle_state():
@@ -72,6 +77,9 @@ func go_to_jump_state():
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
 	jump_count += 1
+	
+	walk_audio.stop()
+	jump_audio.play()
 
 func go_to_fall_state():
 	status = PlayerState.fall
@@ -91,6 +99,7 @@ func go_to_dead_state():
 	
 # estados do player
 func idle_state(delta):
+	walk_audio.stop()
 	apply_gravity(delta)
 	move(delta)
 	if Input.is_action_just_pressed("jump"):
@@ -104,6 +113,10 @@ func idle_state(delta):
 func walk_state(delta):
 	apply_gravity(delta)
 	move(delta)
+	
+	if not walk_audio.playing:
+		walk_audio.play()
+	
 	if Input.is_action_just_pressed("jump"):
 		go_to_jump_state()
 		return
@@ -129,7 +142,7 @@ func jump_state(delta):
 		go_to_fall_state()
 
 func wall_state(delta):
-	
+	walk_audio.stop()
 	velocity.y += wall_acceleration * delta
 	
 	if left_wall_detector.is_colliding():
@@ -158,6 +171,7 @@ func wall_state(delta):
 		return
 	
 func fall_state(delta):
+	walk_audio.stop()
 	apply_gravity(delta)
 	move(delta)
 	

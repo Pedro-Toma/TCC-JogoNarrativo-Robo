@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://dsn443rhihxlp"]
+[gd_scene load_steps=35 format=3 uid="uid://dsn443rhihxlp"]
 
 [ext_resource type="Script" uid="uid://boui7eg5gk4ql" path="res://scripts/boots.gd" id="1_av0vb"]
 [ext_resource type="Texture2D" uid="uid://df8k2ywswkpm8" path="res://sprites/botas.png" id="1_bbwpc"]
+[ext_resource type="AudioStream" uid="uid://bvssf5tf0vikb" path="res://sounds/power_up.mp3" id="3_hiwv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbwpc"]
 atlas = ExtResource("1_bbwpc")
@@ -230,5 +231,9 @@ frame_progress = 0.83211607
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gd2j3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hiwv6")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

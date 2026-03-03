@@ -169,6 +169,8 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="Foguete" type="Area2D" groups=["RequiredItems"]]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_cw0gn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

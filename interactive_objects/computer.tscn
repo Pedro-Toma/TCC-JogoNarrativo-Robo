@@ -37,12 +37,12 @@ shape = SubResource("RectangleShape2D_alhoo")
 
 [node name="InteractPrompt" type="Sprite2D" parent="."]
 position = Vector2(0, -30)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_vstf3")
 
 [node name="BlockMessage" type="Sprite2D" parent="."]
-position = Vector2(1, -37)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -35)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_alhoo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

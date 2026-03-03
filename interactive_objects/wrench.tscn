@@ -71,6 +71,8 @@ animations = [{
 }]
 
 [node name="wrench" type="Area2D" groups=["RequiredItems"]]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_7dwny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

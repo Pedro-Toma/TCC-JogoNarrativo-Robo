@@ -28,3 +28,6 @@ func intro_zoom(initial_zoom: Vector2 = Vector2(8.0, 8.0), duration: float = 2.0
 	tween.tween_property(self, "zoom", Vector2(1.0, 1.0), duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN)
+	
+	tween.tween_interval(1)
+	await tween.finished
