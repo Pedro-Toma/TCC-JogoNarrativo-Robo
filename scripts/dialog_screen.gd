@@ -30,18 +30,21 @@ func initialize_dialog():
 		dialog_label.visible_characters += 1
 
 func _process(_delta):
-	# Atalho para acelerar o texto segurando "Enter" (ui_accept)
-	if Input.is_action_pressed("skip"):
+	if Input.is_action_pressed("interact"):
 		if dialog_label.visible_ratio < 1 && dialog_label.visible_ratio > 0.05:
-			step = 0.01 # Acelera
+			step = 0.01
 		else:
-			step = 0.03 # Volta ao normal
-			
-	# Passar para a próxima mensagem ao pressionar "Enter"
-	if Input.is_action_just_pressed("skip"):
-		if dialog_label.visible_ratio == 1:
+			step = 0.03
+
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("interact"):
+		
+		get_viewport().set_input_as_handled()
+		
+		if dialog_label.visible_ratio >= 1.0:
 			id += 1
-			if id == data.size():
-				queue_free() # Fecha o diálogo ao fim das mensagens
+			if id >= data.size():
+				queue_free() 
 			else:
 				initialize_dialog()

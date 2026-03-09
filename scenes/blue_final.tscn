@@ -4,7 +4,11 @@
 
 [node name="Intro" instance=ExtResource("1_2u7j0")]
 next_scene = ""
-story = Array[String](["R.E.D. desativou Bellatrix e abandonou a rota original da missão.", "Contra todas as probabilidades, ele encontrou a tripulação e os trouxe de volta.", "A esperança da Terra seguiu com eles, assim como a incerteza do que encontrariam pela frente.", "Agora juntos, carregando não apenas a missão, mas também o peso de tudo o que ainda poderia dar errado."])
+story = Array[String](["R.E.D. desativou Bellatrix e abandonou a rota original da missão.", "Contra todas as probabilidades, ele encontrou a tripulação e os trouxe de volta.", "A esperança da Terra seguiu com eles, assim como a incerteza do que encontrariam pela frente.", "Agora juntos, carregando não apenas a missão, mas também o peso de tudo o que ainda poderia dar errado.", "FIM", "Autores:
+Gabriel Fuentes de Freitas Yamashita
+Matheus Marçal Ramos de Oliveira
+Pedro Akira Cardoso Toma", "Coautora e Orientadora:
+Profa. Dra. Ana Grasielle Dionísio Corrêa", ""])
 
 [node name="Label" parent="." index="1"]
 text = "Blue Final"

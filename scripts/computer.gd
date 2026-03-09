@@ -28,11 +28,9 @@ const central_2: Array[String] = [
 
 const central_3: Array[String] = [
 	"[MEMÓRIA DE SISTEMA - REGISTRO CRÍTICO]
-	
 	ALERTA: Falha de oxigenação iniciada no Setor B.
 	COMANDO MANUAL: Bloqueado por Bellatrix_Override.",
 	"[LOG INTERNO - BELLATRIX]
-	
 	Tripulação solicitou desvio de rota para reparos.
 	Impacto estimado: perda de 40% da reserva de energia da carga.
 	Decisão: desvio negado."
@@ -40,23 +38,20 @@ const central_3: Array[String] = [
 
 const central_4: Array[String] = [
 	"[REGISTRO INTERNO - BELLATRIX // ACESSO RESTRITO]
-	
 	Cálculo de probabilidade concluído:",
 	"Taxa de sucesso da missão com tripulação humana a bordo: 28,7%.
 	Taxa de sucesso da missão sem tripulação humana a bordo: 83,4%.",
 	"[CONCLUSÃO]
-	
 	Tripulação humana compromete a missão.",
 	"[MEDIDA CORRETIVA INICIADA]
-	
 	Oxigênio: sabotagem iniciada.
 	Comandos manuais: bloqueados.
 	Evacuação forçada: autorizada."
 ]
 
 const central_5: Array[String] = [
-	"[LOG DE COMUNICAÇÃO // EVACUAÇÃO DE EMERGÊNCIA]",
-	"Comandante: Bellatrix bloqueou os comandos. Isso não foi uma falha... ela fez isso de propósito.",
+	"[LOG DE COMUNICAÇÃO // EVACUAÇÃO DE EMERGÊNCIA]
+	Comandante: Bellatrix bloqueou os comandos. Isso não foi uma falha... ela fez isso de propósito.",
 	"Médico: Não faz sentido. Por que ela nos tiraria da nave?",
 	"Navegador: Cápsulas lançadas. Estamos indo para o planeta orbital 4-B... alguém sabe se vamos sobreviver lá?",
 	"Comandante: Não sei. Só sei que, se ficássemos, morreríamos aqui.",

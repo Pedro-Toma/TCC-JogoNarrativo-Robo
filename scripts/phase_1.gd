@@ -14,7 +14,7 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "R.E.D, você precisa coletar todos os itens espalhados nessa sala. Só assim será possível reconstruir a nave e o teleporte para levar você de volta à Central.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 }
 

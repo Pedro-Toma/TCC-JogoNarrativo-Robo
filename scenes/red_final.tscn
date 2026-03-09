@@ -4,7 +4,11 @@
 
 [node name="Intro" instance=ExtResource("1_jcuc4")]
 next_scene = ""
-story = Array[String](["R.E.D. manteve Bellatrix ativa e seguiu até a fonte de energia infinita.", "A missão foi concluída. A Terra foi salva.", "Mas, no silêncio da nave reconstruída, restou apenas a certeza do preço que foi pago.", "A humanidade sobreviveu, mas nem todos viveram para vê-la."])
+story = Array[String](["R.E.D. manteve Bellatrix ativa e seguiu até a fonte de energia infinita.", "A missão foi concluída. A Terra foi salva.", "Mas, no silêncio da nave reconstruída, restou apenas a certeza do preço que foi pago.", "A humanidade sobreviveu, mas nem todos viveram para vê-la.", "FIM...", "Autores:
+Gabriel Fuentes de Freitas Yamashita
+Matheus Marçal Ramos de Oliveira
+Pedro Akira Cardoso Toma", "Coautora e Orientadora:
+Profa. Dra. Ana Grasielle Dionísio Corrêa", ""])
 
 [node name="Label" parent="." index="1"]
 text = "Red Final"

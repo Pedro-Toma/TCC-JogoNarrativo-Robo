@@ -99,7 +99,7 @@ func go_to_game():
 	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
 func _input(event):
-	if event.is_action_pressed("skip") and not skipped:
+	if event.is_action_pressed("interact") and not skipped:
 			skipped = true
 			
 			letter_time = 0.0

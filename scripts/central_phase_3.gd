@@ -15,7 +15,7 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Ótimo, RED. O sistema de pressurização foi regulado. Agora volte ao computador e analise tudo o que encontrou até agora.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 }
 

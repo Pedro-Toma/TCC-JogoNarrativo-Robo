@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://db28edxuaoo5b" path="res://sprites/porta_concluida.png" id="3_3yomp"]
 [ext_resource type="Texture2D" uid="uid://fbd7cr44q57r" path="res://sprites/porta-fechada.png" id="4_mryqr"]
 [ext_resource type="AudioStream" uid="uid://ccqhg27a85viu" path="res://sounds/door_opening.wav" id="6_5ygw8"]
-[ext_resource type="AudioStream" uid="uid://dghrignlh7uf1" path="res://sounds/door_closing.wav" id="7_s33rh"]
+[ext_resource type="AudioStream" uid="uid://ckk5p763wpxf7" path="res://sounds/door_closing.wav" id="7_s33rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3jrh"]
 size = Vector2(32.8125, 32.71875)

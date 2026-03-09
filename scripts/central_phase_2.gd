@@ -15,13 +15,13 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Muito bem, R.E.D. O sistema de energia foi restaurado, mas ainda temos muito trabalho pela frente.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	1: {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Vá até o computador, abra a comporta da Sala 002 e analise tudo o que encontrou até agora.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 }
 

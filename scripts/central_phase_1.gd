@@ -16,39 +16,33 @@ const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da 
 var dialog_data: Dictionary = {
 	0: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Olá, RED. É um alívio ver que seu núcleo de processamento ainda está intacto. Eu sou Bellatrix. Você sofreu um trauma severo durante a colisão. Não tente forçar a memória agora; apenas siga minhas orientações.",
+		"dialog": "Olá, R.E.D. Seu núcleo de processamento está funcional. Você sofreu danos na colisão. Não force a memória agora e siga minhas instruções.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
-		"dialog": "Bellatrix? O que aconteceu? Onde está o resto da tripulação? A missão fracassou?",
+		"dialog": "Bellatrix? O que aconteceu? Onde está a tripulação? A missão...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	2: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Diversas partes da nave foram danificadas devido a uma chuva de meteoritos que passou invisível pelos radares, comprometendo nossas estruturas externas e internas.",
+		"dialog": "A nave foi atingida por uma chuva de meteoritos não detectada. A estrutura foi comprometida, e a tripulação foi evacuada após a queda crítica do oxigênio.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	3: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Já a tripulação teve de evacuar, por conta dos níveis de oxigênio terem chegado a um estado crítico.",
+		"dialog": "A missão ainda pode ser concluída, mas precisamos agir rápido. Vá até o computador, verifique seu sistema de memória e depois siga para a Sala 001 para restaurar a energia da nave.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	4: {
-		"face": "res://sprites/bella_face.png",
-		"dialog": "Quanto à missão, ainda temos esperança e grandes chances de sucesso, mas não muito tempo... Precisamos das suas habilidades para reconstruirmos a nave. Vá até a sala 001 para religar completamente o sistema de energização.",
-		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
-	},
-	5: {
 		"face": "res://sprites/red_face.png",
-		"dialog": "OK! Vamos nessa!",
+		"dialog": "Entendido!",
 		"title": "R.E.D.",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	}
 }
 func _ready() -> void:

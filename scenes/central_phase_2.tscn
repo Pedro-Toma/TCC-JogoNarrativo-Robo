@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 18.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -145,7 +145,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"transition",
-"speed": 5.0
+"speed": 18.0
 }]
 
 [node name="central_phase_2" type="Node2D" node_paths=PackedStringArray("hud")]
@@ -206,11 +206,11 @@ time = 3
 position = Vector2(0, 149)
 
 [node name="moving_platform2" parent="." instance=ExtResource("10_e7llj")]
-position = Vector2(450, 114)
+position = Vector2(450, 262)
 time = 3
 
 [node name="Target" parent="moving_platform2" index="1"]
-position = Vector2(0, 149)
+position = Vector2(0, -149)
 
 [node name="fase_001_plate" type="Sprite2D" parent="."]
 z_index = -1
@@ -221,6 +221,7 @@ texture = ExtResource("11_62gmv")
 z_index = -1
 position = Vector2(39, 196)
 sprite_frames = SubResource("SpriteFrames_bvhpw")
+animation = &"transition"
 autoplay = "default"
 
 [node name="fase_003_plate" type="Sprite2D" parent="."]
