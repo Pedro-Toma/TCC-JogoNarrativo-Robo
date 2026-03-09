@@ -12,9 +12,3 @@ func _ready():
 	tween.tween_interval(0.5)
 	tween.tween_property(black_screen, "modulate:a", 0.0, 10)
 	tween.tween_callback(transition_layer.queue_free)
-	
-	var camera = get_viewport().get_camera_2d()
-	
-	# aplica o zoom na câmera
-	if camera and camera.has_method("intro_zoom"):
-		camera.intro_zoom()

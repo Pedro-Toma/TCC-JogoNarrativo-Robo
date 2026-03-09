@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://b68g2v5no0a0w"]
+
+[ext_resource type="Texture2D" uid="uid://du1j2ujmk45mx" path="res://sprites/blue_button.png" id="1_uxh6f"]
+[ext_resource type="Script" uid="uid://vydao7bg4x8f" path="res://scripts/button.gd" id="1_vea65"]
+[ext_resource type="Texture2D" uid="uid://xc2tnsp6naji" path="res://sprites/red_button.png" id="3_ju8va"]
+[ext_resource type="Texture2D" uid="uid://dig5vhcsv2cxi" path="res://sprites/final_message.png" id="4_c7fd6"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="5_hv6tk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vea65"]
+size = Vector2(13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju8va"]
+atlas = ExtResource("1_uxh6f")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2evju"]
+atlas = ExtResource("3_ju8va")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r27b"]
+atlas = ExtResource("1_uxh6f")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq72b"]
+atlas = ExtResource("3_ju8va")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2evju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju8va")
+}],
+"loop": false,
+"name": &"idle_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2evju")
+}],
+"loop": false,
+"name": &"idle_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r27b")
+}],
+"loop": false,
+"name": &"pressed_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq72b")
+}],
+"loop": false,
+"name": &"pressed_red",
+"speed": 5.0
+}]
+
+[node name="Button" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_vea65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_vea65")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2evju")
+animation = &"idle_blue"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -37.0
+offset_top = -33.0
+offset_right = 37.0
+offset_bottom = -12.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_c7fd6")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_hv6tk")
+theme_override_font_sizes/font_size = 6
+text = "R.E.D. desativa Bellatrix e salva a tripulação"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

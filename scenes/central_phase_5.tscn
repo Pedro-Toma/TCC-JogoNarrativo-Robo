@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://xgffodjhj830" path="res://sprites/002_phase_blue.png" id="12_4n57m"]
 [ext_resource type="Texture2D" uid="uid://w8dqwul6h8eg" path="res://sprites/003_phase_blue.png" id="13_hkweh"]
 [ext_resource type="Texture2D" uid="uid://b8u1krnlbia4u" path="res://sprites/004_phase_blue.png" id="14_jfedx"]
-[ext_resource type="PackedScene" uid="uid://b68g2v5no0a0w" path="res://interactive_objects/blue_button.tscn" id="14_tibl7"]
+[ext_resource type="PackedScene" uid="uid://b68g2v5no0a0w" path="res://interactive_objects/button.tscn" id="14_tibl7"]
 
 [node name="central_phase_5" type="Node2D" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_ofc03")
@@ -79,25 +79,35 @@ time = 3
 position = Vector2(0, 149)
 
 [node name="fase_001_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(566, 196)
 texture = ExtResource("11_iv63t")
 
 [node name="fase_002_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(39, 196)
 texture = ExtResource("12_4n57m")
 
 [node name="fase_003_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(39, 52)
 texture = ExtResource("13_hkweh")
 
 [node name="fase_004_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(566, 52)
 texture = ExtResource("14_jfedx")
 
-[node name="BlueButton" parent="." instance=ExtResource("14_tibl7")]
-position = Vector2(264, 123)
-
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="BlueButton" parent="." instance=ExtResource("14_tibl7")]
+position = Vector2(230, 123)
+button_color = "blue"
+message = "R.E.D. desativa Bellatrix e salva a tripulação"
+
+[node name="RedButton" parent="." instance=ExtResource("14_tibl7")]
+position = Vector2(377, 123)
+message = "R.E.D. segue o plano de Bellatrix"
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

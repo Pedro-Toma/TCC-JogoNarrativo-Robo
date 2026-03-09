@@ -11,6 +11,8 @@ enum DoorState {
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_opening: AudioStreamPlayer2D = $audio_opening
+@onready var audio_closing: AudioStreamPlayer2D = $audio_closing
 
 
 @export var door_id: String = ""
@@ -26,6 +28,7 @@ func _ready():
 		GameState.close_door(door_id)
 		status = DoorState.closing
 		anim.play("closing")
+		audio_closing.play()
 		await anim.animation_finished
 		if anim.animation == "closing":
 			anim.play("locked")
@@ -58,6 +61,7 @@ func _input(event: InputEvent) -> void:
 			DoorState.closed:
 				status = DoorState.opening
 				anim.play("opening")
+				audio_opening.play()
 				await anim.animation_finished
 				if anim.animation == "opening":
 					status = DoorState.opened

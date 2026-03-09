@@ -4,4 +4,4 @@
 
 [node name="Intro" instance=ExtResource("1_2cxry")]
 next_scene = "central_phase_1"
-story = Array[String](["Começa o jogo."])
+story = Array[String](["R.E.D.", "Você está desconectado há 391 horas. ", "Inicializando módulo de recuperação..."])

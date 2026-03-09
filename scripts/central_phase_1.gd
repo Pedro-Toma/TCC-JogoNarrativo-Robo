@@ -16,26 +16,38 @@ const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da 
 var dialog_data: Dictionary = {
 	0: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Olá! Sejam todos bem-vindos ao canal.",
-		"title": "Bella",
+		"dialog": "Olá, RED. É um alívio ver que seu núcleo de processamento ainda está intacto. Eu sou Bellatrix. Você sofreu um trauma severo durante a colisão. Não tente forçar a memória agora; apenas siga minhas orientações.",
+		"title": "Bellatrix",
 		"subtitle": "Pressione Enter para pular"
 	},
 	1: {
-		"face": "res://sprites/bella_face.png",
-		"dialog": "Neste canal vocês encontrarão diversos tutoriais",
-		"title": "Bella",
+		"face": "res://sprites/red_face.png",
+		"dialog": "Bellatrix? O que aconteceu? Onde está o resto da tripulação? A missão fracassou?",
+		"title": "R.E.D.",
 		"subtitle": "Pressione Enter para pular"
 	},
 	2: {
-		"face": "res://sprites/red_face.png",
-		"dialog": "Você esqueceu de falar dos cursos!",
-		"title": "Red",
+		"face": "res://sprites/bella_face.png",
+		"dialog": "Diversas partes da nave foram danificadas devido a uma chuva de meteoritos que passou invisível pelos radares, comprometendo nossas estruturas externas e internas.",
+		"title": "Bellatrix",
 		"subtitle": "Pressione Enter para pular"
 	},
 	3: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Bem lembrado! Link na descrição.",
-		"title": "Bella",
+		"dialog": "Já a tripulação teve de evacuar, por conta dos níveis de oxigênio terem chegado a um estado crítico.",
+		"title": "Bellatrix",
+		"subtitle": "Pressione Enter para pular"
+	},
+	4: {
+		"face": "res://sprites/bella_face.png",
+		"dialog": "Quanto à missão, ainda temos esperança e grandes chances de sucesso, mas não muito tempo... Precisamos das suas habilidades para reconstruirmos a nave. Vá até a sala 001 para religar completamente o sistema de energização.",
+		"title": "Bellatrix",
+		"subtitle": "Pressione Enter para pular"
+	},
+	5: {
+		"face": "res://sprites/red_face.png",
+		"dialog": "OK! Vamos nessa!",
+		"title": "R.E.D.",
 		"subtitle": "Pressione Enter para pular"
 	}
 }

@@ -1,7 +1,7 @@
 extends Control
 class_name DialogScreen
 
-var step: float = 0.05 # Velocidade padrão do texto
+var step: float = 0.03 # Velocidade padrão do texto
 var id: int = 0 # Índice da mensagem atual
 var data: Dictionary = {} # Dicionário que receberá os dados do diálogo
 
@@ -32,10 +32,10 @@ func initialize_dialog():
 func _process(_delta):
 	# Atalho para acelerar o texto segurando "Enter" (ui_accept)
 	if Input.is_action_pressed("skip"):
-		if dialog_label.visible_ratio < 1:
+		if dialog_label.visible_ratio < 1 && dialog_label.visible_ratio > 0.05:
 			step = 0.01 # Acelera
 		else:
-			step = 0.05 # Volta ao normal
+			step = 0.03 # Volta ao normal
 			
 	# Passar para a próxima mensagem ao pressionar "Enter"
 	if Input.is_action_just_pressed("skip"):

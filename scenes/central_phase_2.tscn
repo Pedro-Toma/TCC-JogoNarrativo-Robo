@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -213,19 +213,23 @@ time = 3
 position = Vector2(0, 149)
 
 [node name="fase_001_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(566, 196)
 texture = ExtResource("11_62gmv")
 
 [node name="fase_002_plate" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(39, 196)
 sprite_frames = SubResource("SpriteFrames_bvhpw")
 autoplay = "default"
 
 [node name="fase_003_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(39, 52)
 texture = ExtResource("14_mnhky")
 
 [node name="fase_004_plate" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(566, 52)
 texture = ExtResource("15_ege4n")
 

@@ -19,10 +19,10 @@ func _ready():
 		anim.play("broken")
 		for item in items:
 			item.collected.connect(_on_item_collected)
-	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && can_interact == true:
+		can_interact = false
 		player_ref.pode_mover = false
 		audio.play()
 		anim.play("on")
@@ -37,7 +37,10 @@ func _on_item_collected():
 func activate_teleport():
 	anim.play("default")
 	tp_ativo = true
-
+	
+	if player_ref != null:
+		can_interact = true
+		
 func load_next_scene():
 	get_tree().change_scene_to_file("res://scenes/" + central_level + ".tscn")
 
@@ -47,8 +50,10 @@ func _on_body_entered(body: Node2D) -> void:
 		if tp_ativo:
 			can_interact = true
 
-func _on_body_exited(_body: Node2D) -> void:
-	can_interact = false
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		can_interact = false
+		player_ref = null
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "on":

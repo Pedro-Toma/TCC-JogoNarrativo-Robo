@@ -11,14 +11,14 @@ extends Control
 
 # texto a ser mostrado
 @export_multiline var story: Array[String] = [
-#	"A energia da Terra está acabando.",
+	"A energia da Terra está acabando.",
 	"À beira da extinção, descobrimos na galáxia vizinha uma fonte de energia impossível: energia infinita em forma de matéria.",
-#	"Tangível. Coletável. Estável.",
-#	"Você faz parte da última missão de coleta.",
-#	"Uma nave. Uma tripulação.",
-#	"A unidade R.E.D. e os robôs operados pela IA Bellatrix.",
-#	"Sem margem de erro.",
-#	"Sem segunda chance.",
+	"Tangível. Coletável. Estável.",
+	"Você faz parte da última missão de coleta.",
+	"Uma nave. Uma tripulação.",
+	"A unidade R.E.D. e os robôs operados pela IA Bellatrix.",
+	"Sem margem de erro.",
+	"Sem segunda chance.",
 	"Traga a substância… ou a Terra apaga de vez.",
 ]
 
@@ -94,6 +94,8 @@ func next_sentence():
 	display_sentence()
 
 func go_to_game():
+	if next_scene == "":
+		return
 	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
 func _input(event):

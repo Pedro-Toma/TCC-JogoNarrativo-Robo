@@ -151,7 +151,10 @@ position = Vector2(919, 291)
 position = Vector2(932, 291)
 
 [node name="gloves" parent="." instance=ExtResource("15_3xt8j")]
-position = Vector2(814, 291)
+position = Vector2(97, 244)
+
+[node name="gloves2" parent="." instance=ExtResource("15_3xt8j")]
+position = Vector2(97, 244)
 
 [node name="leaf" parent="." instance=ExtResource("16_mw0ff")]
 position = Vector2(162, 194)

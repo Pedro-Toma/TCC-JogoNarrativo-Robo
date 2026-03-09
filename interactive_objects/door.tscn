@@ -1,10 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://bex4khrsw84mo"]
+[gd_scene load_steps=38 format=3 uid="uid://bex4khrsw84mo"]
 
 [ext_resource type="Script" uid="uid://qpmrlin5of60" path="res://scripts/door.gd" id="1_c3jrh"]
 [ext_resource type="Texture2D" uid="uid://dxuqwmxk4pd73" path="res://sprites/porta.png" id="1_to2ij"]
 [ext_resource type="Texture2D" uid="uid://b5plqehsqg8tf" path="res://sprites/porta-abrindo.png" id="2_bpwx3"]
 [ext_resource type="Texture2D" uid="uid://db28edxuaoo5b" path="res://sprites/porta_concluida.png" id="3_3yomp"]
 [ext_resource type="Texture2D" uid="uid://fbd7cr44q57r" path="res://sprites/porta-fechada.png" id="4_mryqr"]
+[ext_resource type="AudioStream" uid="uid://ccqhg27a85viu" path="res://sounds/door_opening.wav" id="6_5ygw8"]
+[ext_resource type="AudioStream" uid="uid://dghrignlh7uf1" path="res://sounds/door_closing.wav" id="7_s33rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3jrh"]
 size = Vector2(32.8125, 32.71875)
@@ -250,6 +252,12 @@ shape = SubResource("RectangleShape2D_c3jrh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_obs26")
 animation = &"finished"
+
+[node name="audio_opening" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5ygw8")
+
+[node name="audio_closing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_s33rh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
