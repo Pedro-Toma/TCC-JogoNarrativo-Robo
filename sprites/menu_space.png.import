@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csntgsm5rlvnl"
-path="res://.godot/imported/red_face.png-8b814097fb54116193d87301394f7252.ctex"
+uid="uid://by7jbgdcfux4y"
+path="res://.godot/imported/menu_space.png-1b03c83f1e76aa0859e76cf14ba176a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/red_face.png"
-dest_files=["res://.godot/imported/red_face.png-8b814097fb54116193d87301394f7252.ctex"]
+source_file="res://sprites/menu_space.png"
+dest_files=["res://.godot/imported/menu_space.png-1b03c83f1e76aa0859e76cf14ba176a3.ctex"]
 
 [params]
 

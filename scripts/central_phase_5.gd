@@ -17,13 +17,13 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Sala 004 restaurada. Reconstrução da nave concluída. Todos os sistemas estão prontos para a etapa final da missão.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione Enter para pular"
+		"subtitle": "Pressione E para pular"
 	}
 }
 

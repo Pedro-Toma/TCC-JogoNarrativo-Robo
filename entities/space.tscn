@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://18k224a7edad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhkrk"]
+size = Vector2(12, 20)
 
 [node name="Space" type="Area2D" groups=["LethalArea"]]
 collision_layer = 8

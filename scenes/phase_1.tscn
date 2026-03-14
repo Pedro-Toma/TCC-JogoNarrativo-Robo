@@ -28,7 +28,7 @@ size = Vector2(20, 260)
 size = Vector2(260, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cnnc"]
-size = Vector2(67.625, 15)
+size = Vector2(52.8125, 15)
 
 [node name="phase_1" type="Node2D" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_id5lc")
@@ -93,7 +93,7 @@ position = Vector2(95, 9)
 shape = SubResource("RectangleShape2D_o5tko")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Space" groups=["LethalArea"]]
-position = Vector2(511, 8)
+position = Vector2(518.40625, 8)
 shape = SubResource("RectangleShape2D_6cnnc")
 
 [node name="Player" parent="." instance=ExtResource("10_e2ktc")]
@@ -122,7 +122,7 @@ collision_mask = 2
 central_level = "central_phase_2"
 
 [node name="door" parent="." instance=ExtResource("15_dk0s8")]
-position = Vector2(902, 33)
+position = Vector2(895, 34)
 door_id = "phase_1"
 
 [node name="Fire4" parent="." instance=ExtResource("13_1p322")]

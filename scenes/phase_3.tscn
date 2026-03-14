@@ -79,7 +79,7 @@ position = Vector2(107, 240)
 position = Vector2(117, 187)
 
 [node name="door" parent="." instance=ExtResource("10_5n6oq")]
-position = Vector2(959, 305)
+position = Vector2(944, 306)
 door_id = "phase_3"
 
 [node name="Space" parent="." instance=ExtResource("11_tk7nq")]

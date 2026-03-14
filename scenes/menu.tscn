@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cb2d3ml2hsx8y"]
+
+[ext_resource type="Script" uid="uid://604853swqwng" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Shader" uid="uid://r1wwkrv75rm6" path="res://scripts/menu.gdshader" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://by7jbgdcfux4y" path="res://sprites/menu_space.png" id="2_vjb58"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhnvy"]
+shader = ExtResource("2_con2f")
+shader_parameter/speed = Vector2(0.01, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeox"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqeox"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_yqeox")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mhnvy")
+offset_right = 600.0
+offset_bottom = 352.0
+texture = ExtResource("2_vjb58")
+stretch_mode = 1
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 110.0
+offset_right = 390.0
+offset_bottom = 170.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+text = "Jogar"
+
+[node name="Quit" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 200.0
+offset_right = 390.0
+offset_bottom = 260.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+text = "Sair"
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]

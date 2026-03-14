@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://m02uolqhguxc" path="res://scenes/intro.tscn" id="1_2u7j0"]
 
 [node name="Intro" instance=ExtResource("1_2u7j0")]
-next_scene = ""
+next_scene = "res://scenes/menu.tscn"
 story = Array[String](["R.E.D. desativou Bellatrix e abandonou a rota original da missão.", "Contra todas as probabilidades, ele encontrou a tripulação e os trouxe de volta.", "A esperança da Terra seguiu com eles, assim como a incerteza do que encontrariam pela frente.", "Agora juntos, carregando não apenas a missão, mas também o peso de tudo o que ainda poderia dar errado.", "FIM", "Autores:
 Gabriel Fuentes de Freitas Yamashita
 Matheus Marçal Ramos de Oliveira

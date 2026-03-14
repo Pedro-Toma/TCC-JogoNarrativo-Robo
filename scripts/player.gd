@@ -15,6 +15,7 @@ enum PlayerState {
 @onready var left_wall_detector: RayCast2D = $LeftWallDetector
 @onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
 @onready var walk_audio: AudioStreamPlayer2D = $WalkAudio
+@onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 
 const JUMP_VELOCITY = -300.0
 
@@ -31,6 +32,7 @@ var jump_count = 0
 @export var wall_jump_velocity = 100
 var direction = 0
 var status: PlayerState
+var spawn_position: Vector2
 
 func _ready() -> void:
 	go_to_idle_state()
@@ -38,6 +40,7 @@ func _ready() -> void:
 		max_jump_count = 2
 	if GameState.has_wall_jump:
 		has_wall_jump = true
+	spawn_position = global_position
 
 # verificar estado do player
 func _physics_process(delta: float) -> void:
@@ -92,6 +95,7 @@ func go_to_wall_state():
 
 func go_to_dead_state():
 	status = PlayerState.dead
+	death_audio.play()
 	anim.play("dead")
 	velocity.y = 50
 	velocity.x = 0
@@ -250,7 +254,9 @@ func hit_lethal_area():
 	go_to_dead_state()
 	
 func _on_reload_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	global_position = spawn_position
+	velocity = Vector2.ZERO
+	go_to_idle_state()
 
 func enable_double_jump():
 	max_jump_count = 2

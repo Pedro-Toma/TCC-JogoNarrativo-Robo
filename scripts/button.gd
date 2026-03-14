@@ -7,6 +7,7 @@ signal button_pressed(button_color)
 
 @onready var label: Label = $MarginContainer/MarginContainer/Label
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var button_audio: AudioStreamPlayer2D = $button_audio
 
 var can_interact: bool = false
 var already_pressed: bool = false
@@ -18,7 +19,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact and not already_pressed:
 		already_pressed = true 
-		
+		button_audio.play()
 		anim.play("pressed_" + button_color) 
 		
 		button_pressed.emit(button_color)

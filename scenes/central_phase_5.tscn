@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://p6xmv723qf1m"]
 
-[ext_resource type="Script" uid="uid://cceq6aoyx61j1" path="res://scenes/central_phase_5.gd" id="1_ofc03"]
+[ext_resource type="Script" uid="uid://cceq6aoyx61j1" path="res://scripts/central_phase_5.gd" id="1_ofc03"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_tibl7"]
 [ext_resource type="Texture2D" uid="uid://bwm2irgmjib37" path="res://sprites/background/space_central.png" id="3_plker"]
 [ext_resource type="TileSet" uid="uid://bhkgwg7fxrlyg" path="res://tiles/terrain.tres" id="4_v8hsy"]

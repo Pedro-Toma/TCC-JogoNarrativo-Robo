@@ -57,6 +57,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "on":
-		player_ref.pode_mover = true
+		if player_ref != null:
+			player_ref.pode_mover = true
 		GameState.fase_central_atual += 1
 		load_next_scene()

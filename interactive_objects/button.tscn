@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b68g2v5no0a0w"]
+[gd_scene load_steps=13 format=3 uid="uid://b68g2v5no0a0w"]
 
 [ext_resource type="Texture2D" uid="uid://du1j2ujmk45mx" path="res://sprites/blue_button.png" id="1_uxh6f"]
 [ext_resource type="Script" uid="uid://vydao7bg4x8f" path="res://scripts/button.gd" id="1_vea65"]
 [ext_resource type="Texture2D" uid="uid://xc2tnsp6naji" path="res://sprites/red_button.png" id="3_ju8va"]
 [ext_resource type="Texture2D" uid="uid://dig5vhcsv2cxi" path="res://sprites/final_message.png" id="4_c7fd6"]
 [ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="5_hv6tk"]
+[ext_resource type="AudioStream" uid="uid://b6iyjvej7m2gr" path="res://sounds/button_sound.wav" id="6_awbg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vea65"]
 size = Vector2(13, 16)
@@ -103,6 +104,10 @@ theme_override_font_sizes/font_size = 6
 text = "R.E.D. desativa Bellatrix e salva a tripulação"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="button_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_awbg3")
+volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

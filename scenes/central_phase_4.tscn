@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 18.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -145,7 +145,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"transition",
-"speed": 5.0
+"speed": 18.0
 }]
 
 [node name="central_phase_4" type="Node2D" node_paths=PackedStringArray("hud")]

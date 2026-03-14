@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_ktbmo")
 position = Vector2(53, 210)
 
 [node name="door" parent="." instance=ExtResource("11_g3y4m")]
-position = Vector2(32, 49)
+position = Vector2(63, 50)
 door_id = "phase_2"
 
 [node name="Space" parent="." instance=ExtResource("12_hlfao")]
