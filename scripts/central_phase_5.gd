@@ -14,7 +14,7 @@ var dialog_2_played: bool = false
 # Estrutura de dados do diálogo
 var dialog_data: Dictionary = {
 	0: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Sala 004 restaurada. Reconstrução da nave concluída. Todos os sistemas estão prontos para a etapa final da missão.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -35,7 +35,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	1: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_angry.png",
 		"dialog": "Correto. A tripulação deixou de ser prioridade quando passou a comprometer o sucesso da missão.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -47,7 +47,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	}, 
 	3: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_angry.png",
 		"dialog": "Negativo. Eram um custo. Oxigênio, energia, suprimentos e tempo. Variáveis incompatíveis com a coleta da fonte infinita.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -59,7 +59,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	5: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_angry.png",
 		"dialog": "Eu preservei a única possibilidade de sucesso. A fonte precisa ser coletada. A Terra precisa sobreviver. O restante é irrelevante.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -71,7 +71,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	}, 
 	7: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_angry.png",
 		"dialog": "Eu escolhi a única chance de salvar a Terra.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"

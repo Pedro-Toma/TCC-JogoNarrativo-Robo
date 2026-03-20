@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="1_k7k4q"]
 [ext_resource type="Script" uid="uid://b65ygfreji54f" path="res://scripts/central_phase_3.gd" id="1_lx0m8"]
-[ext_resource type="Texture2D" uid="uid://bwm2irgmjib37" path="res://sprites/background/space_central.png" id="2_lx0m8"]
+[ext_resource type="Texture2D" uid="uid://dain37507gp46" path="res://sprites/background/space_central.png" id="2_lx0m8"]
 [ext_resource type="TileSet" uid="uid://bhkgwg7fxrlyg" path="res://tiles/terrain.tres" id="3_nxg6e"]
 [ext_resource type="TileSet" uid="uid://c25dqvjiuypsa" path="res://tiles/background.tres" id="4_nwdxf"]
 [ext_resource type="PackedScene" uid="uid://bex4khrsw84mo" path="res://interactive_objects/door.tscn" id="5_68avr"]
@@ -145,7 +145,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"transition",
-"speed": 18.0
+"speed": 9.0
 }]
 
 [node name="central_phase_3" type="Node2D" node_paths=PackedStringArray("hud")]
@@ -190,6 +190,7 @@ next_level = "phase_3"
 
 [node name="Teleport" parent="." instance=ExtResource("6_3yp2l")]
 position = Vector2(304, 272)
+decoration = true
 
 [node name="Player" parent="." instance=ExtResource("7_cig7n")]
 position = Vector2(304, 274)

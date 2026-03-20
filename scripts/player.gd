@@ -6,7 +6,8 @@ enum PlayerState {
 	jump,
 	fall,
 	wall,
-	dead
+	dead,
+	locked
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -44,6 +45,10 @@ func _ready() -> void:
 
 # verificar estado do player
 func _physics_process(delta: float) -> void:
+	
+	if status == PlayerState.locked:
+		apply_gravity(delta)
+		return
 	
 	if not pode_mover:
 		velocity.x = 0
@@ -100,7 +105,12 @@ func go_to_dead_state():
 	velocity.y = 50
 	velocity.x = 0
 	reload_timer.start()
-	
+
+func go_to_locked_state(animation_name: String):
+	status = PlayerState.locked
+	velocity = Vector2.ZERO
+	anim.play(animation_name)
+
 # estados do player
 func idle_state(delta):
 	walk_audio.stop()

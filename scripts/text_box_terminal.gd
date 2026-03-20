@@ -12,6 +12,8 @@ var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
 
+var skipped = false
+
 signal finished_displaying()
 
 func _ready():
@@ -54,6 +56,14 @@ func _display_letter():
 		_:
 			timer.start(letter_time)
 
+func speed_up() -> bool:
+	if !skipped:
+		letter_time = 0.001
+		space_time = 0.001
+		punctuation_time = 0.001
+		skipped = true
+		return true
+	return false
 
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()

@@ -255,9 +255,11 @@ animation = &"finished"
 
 [node name="audio_opening" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_5ygw8")
+volume_db = -15.0
 
 [node name="audio_closing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_s33rh")
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

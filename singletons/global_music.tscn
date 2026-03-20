@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs7yapt6x2ymw"]
+[gd_scene load_steps=3 format=3 uid="uid://bs7yapt6x2ymw"]
 
 [ext_resource type="AudioStream" uid="uid://c8vuqcb4khc6j" path="res://sounds/game_music.mp3" id="1_obg3y"]
+[ext_resource type="Script" uid="uid://r2iyel3lns5n" path="res://singletons/global_music.gd" id="2_0nkwe"]
 
 [node name="GlobalMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_obg3y")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
+script = ExtResource("2_0nkwe")

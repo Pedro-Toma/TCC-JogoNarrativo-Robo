@@ -58,19 +58,24 @@ func _unhandled_input(event):
 	if(
 		event.is_action_pressed("interact") &&
 		is_dialog_active &&
-		can_advance_line &&
 		is_player_in_range
 	):
-		#bloqueia clique
-		get_viewport().set_input_as_handled()
-		
-		text_box.queue_free()
-		current_line_index += 1
-		
-		if current_line_index >= dialog_lines.size():
-			is_dialog_active = false
-			current_line_index = 0
-			dialog_finished.emit()
+		if is_instance_valid(text_box) and not can_advance_line:
+			text_box.speed_up()
+			get_viewport().set_input_as_handled()
 			return
-		
-		_show_text_box()
+			
+		if can_advance_line:
+			#bloqueia clique
+			get_viewport().set_input_as_handled()
+			
+			text_box.queue_free()
+			current_line_index += 1
+			
+			if current_line_index >= dialog_lines.size():
+				is_dialog_active = false
+				current_line_index = 0
+				dialog_finished.emit()
+				return
+			
+			_show_text_box()

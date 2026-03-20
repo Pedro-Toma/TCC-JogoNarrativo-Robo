@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb2d3ml2hsx8y"]
+[gd_scene load_steps=11 format=3 uid="uid://cb2d3ml2hsx8y"]
 
 [ext_resource type="Script" uid="uid://604853swqwng" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Shader" uid="uid://r1wwkrv75rm6" path="res://scripts/menu.gdshader" id="2_con2f"]
 [ext_resource type="Texture2D" uid="uid://by7jbgdcfux4y" path="res://sprites/menu_space.png" id="2_vjb58"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="4_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://cjkj3dp7qiv67" path="res://scenes/fade_transition.tscn" id="5_4ytvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mhnvy"]
 shader = ExtResource("2_con2f")
@@ -66,10 +68,12 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 110.0
-offset_right = 390.0
-offset_bottom = 170.0
+offset_left = 225.0
+offset_top = 143.0
+offset_right = 375.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
@@ -78,15 +82,38 @@ text = "Jogar"
 
 [node name="Quit" type="Button" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 200.0
-offset_right = 390.0
-offset_bottom = 260.0
+offset_left = 225.0
+offset_top = 233.0
+offset_right = 375.0
+offset_bottom = 293.0
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
 text = "Sair"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 175.0
+offset_top = 30.0
+offset_right = 425.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 60
+text = "RE:Boot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeTransition" parent="CanvasLayer" instance=ExtResource("5_4ytvr")]
+visible = false
+
+[node name="Timer" type="Timer" parent="CanvasLayer/FadeTransition"]
+
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="CanvasLayer/FadeTransition/Timer" to="." method="_on_timer_timeout"]

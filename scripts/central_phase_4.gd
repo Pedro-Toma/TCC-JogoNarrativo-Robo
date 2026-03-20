@@ -1,5 +1,6 @@
 extends Node2D
 
+var dialog_2_played
 var door_id: String = "phase_4"
 @onready var _004_plate: AnimatedSprite2D = $fase_004_plate
 @onready var player: CharacterBody2D = $Player
@@ -25,7 +26,7 @@ var dialog_data: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	2: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Foram medidas necessárias para manter a missão viável. Sem isso, perderíamos recursos demais no trajeto.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -37,7 +38,7 @@ var dialog_data: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	4: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Eu preservei a única chance de sucesso da missão. Continue para a Sala 004, R.E.D. Ainda há sistemas que precisam ser restaurados.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -46,7 +47,7 @@ var dialog_data: Dictionary = {
 
 var dialog_data_2: Dictionary = {
 	0: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "...",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -58,7 +59,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	2: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Foram decisões necessárias para o sucesso da missão. Mas antes disso a nave ainda precisa ser reconstruída.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -70,7 +71,7 @@ var dialog_data_2: Dictionary = {
 		"subtitle": "Pressione E para pular"
 	},
 	4: {
-		"face": "res://sprites/bella_face.png",
+		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Espero que você compreenda a prioridade da missão. Restaure a Sala 004, R.E.D.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
@@ -80,6 +81,7 @@ var dialog_data_2: Dictionary = {
 func _ready() -> void:
 		
 	player.pode_mover = false
+	dialog_2_played = false
 	computer.dialog_finished.connect(run_dialog_2)
 	
 	var new_dialog = DIALOG_SCREEN.instantiate()
@@ -90,6 +92,8 @@ func _ready() -> void:
 	player.pode_mover = true
 
 func run_dialog_2():
+	if dialog_2_played:
+		return
 	_004_plate.play("transition")
 	player.pode_mover = false
 	
@@ -99,3 +103,4 @@ func run_dialog_2():
 	
 	await new_dialog.tree_exited
 	player.pode_mover = true
+	dialog_2_played = true

@@ -46,6 +46,7 @@ var dialog_data: Dictionary = {
 	}
 }
 func _ready() -> void:
+	GlobalMusic.play_music("main")
 	player.pode_mover = false
 	GameState.has_double_jump = false
 	GameState.has_wall_jump = false

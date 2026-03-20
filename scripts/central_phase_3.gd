@@ -13,7 +13,7 @@ const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da 
 var dialog_data: Dictionary = {
 	0: {
 		"face": "res://sprites/bella_face.png",
-		"dialog": "Ótimo, RED. O sistema de pressurização foi regulado. Agora volte ao computador e analise tudo o que encontrou até agora.",
+		"dialog": "Ótimo, R.E.D. O sistema de pressurização foi regulado. Agora volte ao computador e analise tudo o que encontrou até agora.",
 		"title": "Bellatrix",
 		"subtitle": "Pressione E para pular"
 	},

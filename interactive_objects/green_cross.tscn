@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://v3jqdccsckes"]
+[gd_scene load_steps=14 format=3 uid="uid://v3jqdccsckes"]
 
 [ext_resource type="Script" uid="uid://650ad856dx88" path="res://scripts/green_cross.gd" id="1_cm1un"]
 [ext_resource type="Texture2D" uid="uid://dak8akw1jvumf" path="res://sprites/cruz_verde.png" id="1_rcd8n"]
+[ext_resource type="AudioStream" uid="uid://dtet4q1xpsprl" path="res://sounds/health_sound.wav" id="3_f5aq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm1un"]
 size = Vector2(16, 16)
@@ -84,5 +85,7 @@ autoplay = "default"
 frame_progress = 0.104684636
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f5aq1")
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://ch551uwyq6u65"]
+[gd_scene load_steps=36 format=4 uid="uid://ch551uwyq6u65"]
 
 [ext_resource type="Script" uid="uid://b2dkxp21xykth" path="res://scripts/central_phase_1.gd" id="1_e8yyu"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_0u3p6"]
-[ext_resource type="Texture2D" uid="uid://bwm2irgmjib37" path="res://sprites/background/space_central.png" id="3_ciumq"]
+[ext_resource type="Texture2D" uid="uid://dain37507gp46" path="res://sprites/background/space_central.png" id="3_ciumq"]
 [ext_resource type="TileSet" uid="uid://bhkgwg7fxrlyg" path="res://tiles/terrain.tres" id="4_a6nb1"]
 [ext_resource type="TileSet" uid="uid://c25dqvjiuypsa" path="res://tiles/background.tres" id="5_p5150"]
 [ext_resource type="PackedScene" uid="uid://bex4khrsw84mo" path="res://interactive_objects/door.tscn" id="6_pmvtm"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://xx1cid6fx75e" path="res://sprites/002_phase_red.png" id="12_ciumq"]
 [ext_resource type="Texture2D" uid="uid://ce5gcorn2j2gi" path="res://sprites/003_phase_red.png" id="13_a6nb1"]
 [ext_resource type="Texture2D" uid="uid://ds3dfd44o25m7" path="res://sprites/004_phase_red.png" id="14_p5150"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="15_ciumq"]
+[ext_resource type="PackedScene" uid="uid://gr7sg4rks14f" path="res://entities/help_signal.tscn" id="16_a6nb1"]
+[ext_resource type="PackedScene" uid="uid://dly6wg0icim8n" path="res://entities/help_signal_2.tscn" id="17_p5150"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke1a8"]
 atlas = ExtResource("11_ru2xg")
@@ -144,7 +147,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"transition",
-"speed": 18.0
+"speed": 9.0
 }]
 
 [node name="central_phase_1" type="Node2D" node_paths=PackedStringArray("hud")]
@@ -189,6 +192,7 @@ next_level = "phase_1"
 
 [node name="Teleport" parent="." instance=ExtResource("7_lul6n")]
 position = Vector2(304, 272)
+decoration = true
 
 [node name="Player" parent="." instance=ExtResource("8_4nr0r")]
 position = Vector2(304, 274)
@@ -213,7 +217,6 @@ time = 3
 position = Vector2(0, -149)
 
 [node name="Transition Layer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="blackScreen" type="ColorRect" parent="Transition Layer"]
 anchors_preset = -1
@@ -225,6 +228,7 @@ offset_left = 0.20000076
 offset_top = 0.12000084
 offset_right = 0.2000122
 offset_bottom = -0.0960083
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="fase_001_plate" type="AnimatedSprite2D" parent="."]
@@ -249,7 +253,31 @@ z_index = -1
 position = Vector2(566, 52)
 texture = ExtResource("14_p5150")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 543.0
+offset_top = 258.0
+offset_right = 601.0
+offset_bottom = 298.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("15_ciumq")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=yellow]E[/color] - para 
+ entrar"
+
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="SignalLayer" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="HelpSignal" parent="SignalLayer" instance=ExtResource("16_a6nb1")]
+z_index = 5
+position = Vector2(299, 113)
+
+[node name="HelpSignal2" parent="SignalLayer" instance=ExtResource("17_p5150")]
+position = Vector2(566, 226)
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

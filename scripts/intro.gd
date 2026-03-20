@@ -27,6 +27,7 @@ extends Control
 var current_line_index = 0
 var wait_tween: Tween
 var skipped = false
+var can_continue = false
 
 # armazena as variáveis originais de tempo dos caracteres
 var orig_letter_time = letter_time
@@ -49,6 +50,8 @@ func display_sentence():
 
 	# prepara o texto
 	skipped = false
+	can_continue = false
+	
 	letter_time = orig_letter_time
 	punctuation_time = orig_punctuation_time
 	space_time = orig_space_time
@@ -56,7 +59,7 @@ func display_sentence():
 	# pega a frase atual
 	label.text = story[current_line_index]
 	label.visible_ratio = 0.0 # começa invisível
-	
+	label.visible_characters = 0
 	write_sentence()
 	
 func write_sentence():
@@ -66,7 +69,8 @@ func write_sentence():
 	
 	# loop de caracteres
 	while label.visible_characters < total_characters:
-		
+		if label.visible_characters >= label.text.length():
+			break
 		label.visible_characters += 1 # mostra o próximo caractere
 		
 		# identifica o caractere atual e calcula o tempo de escrita
@@ -79,15 +83,13 @@ func write_sentence():
 		# cria tween para controlar tempo de escrita do caractere
 		wait_tween = create_tween()
 		wait_tween.tween_interval(current_time)
+		if skipped:
+			wait_tween.set_speed_scale(1000.0)
 		await wait_tween.finished
 	
 	# se pulou interação tempo entre frases diminui
-	if not skipped:
-		await get_tree().create_timer(between_sentences_time).timeout
-	else:
-		await get_tree().create_timer(0.5).timeout
 	audio.stop()
-	next_sentence()
+	can_continue = true
 
 func next_sentence():
 	current_line_index += 1
@@ -99,12 +101,12 @@ func go_to_game():
 	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
 func _input(event):
-	if event.is_action_pressed("interact") and not skipped:
-			skipped = true
-			
-			letter_time = 0.0
-			punctuation_time = 0.0
-			space_time = 0.0
-			
-			if wait_tween and wait_tween.is_valid():
-				wait_tween.set_speed_scale(1000.0)
+	if event.is_action_pressed("interact"):
+		if not can_continue:
+			if not skipped:
+				skipped = true
+				letter_time = 0.0
+				punctuation_time = 0.0
+				space_time = 0.0
+		else:
+			next_sentence()

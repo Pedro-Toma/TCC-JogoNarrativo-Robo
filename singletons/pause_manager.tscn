@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgvm8321u6vgy"]
+
+[ext_resource type="Script" uid="uid://dm8wfxtt187gc" path="res://singletons/pause_manager.gd" id="1_358y6"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="4_uh5ib"]
+[ext_resource type="PackedScene" uid="uid://cjkj3dp7qiv67" path="res://scenes/fade_transition.tscn" id="5_mf4d3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeox"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqeox"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_358y6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ButtonManager" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Resume" type="Button" parent="Control/ButtonManager"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 113.0
+offset_right = 400.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("4_uh5ib")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+text = "Voltar ao Jogo"
+
+[node name="Instructions" type="Button" parent="Control/ButtonManager"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 193.0
+offset_right = 398.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("4_uh5ib")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+text = "Instruções"
+
+[node name="Quit" type="Button" parent="Control/ButtonManager"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 273.0
+offset_right = 375.0
+offset_bottom = 333.0
+theme_override_fonts/font = ExtResource("4_uh5ib")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+text = "Sair"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 30.0
+offset_right = 425.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_uh5ib")
+theme_override_font_sizes/font_size = 60
+text = "RE:Boot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="FadeTransition" parent="Control/CanvasLayer" instance=ExtResource("5_mf4d3")]
+visible = false
+
+[node name="Timer" type="Timer" parent="Control/CanvasLayer/FadeTransition"]
+
+[connection signal="pressed" from="Control/ButtonManager/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/ButtonManager/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Control/ButtonManager/Quit" to="." method="_on_quit_pressed"]

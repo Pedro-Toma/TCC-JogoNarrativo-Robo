@@ -19,7 +19,6 @@ var dialog_data: Dictionary = {
 }
 
 func _ready() -> void:
-	
 	player.pode_mover = false
 	
 	var new_dialog = DIALOG_SCREEN.instantiate()

@@ -2,6 +2,7 @@ extends Area2D
 
 @export var central_level = ""
 @export var tp_ativo: bool = false
+@export var decoration: bool = false
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -11,8 +12,13 @@ var total_items: int = 0
 var items_collected: int = 0
 
 func _ready():
+	if decoration:
+		anim.play("default") 
+		return
+	
 	var items = get_tree().get_nodes_in_group("RequiredItems")
 	total_items = items.size()
+	print("Total: ", total_items)
 	if total_items == 0:
 		activate_teleport()
 	else:
@@ -30,7 +36,7 @@ func _input(event: InputEvent) -> void:
 func _on_item_collected():
 	items_collected += 1
 	print("Coletou 1 item")
-	
+	print("Items: ", items_collected)
 	if items_collected >= total_items:
 		activate_teleport()
 

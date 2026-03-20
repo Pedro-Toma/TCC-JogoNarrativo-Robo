@@ -20,6 +20,7 @@ enum DoorState {
 
 var status: DoorState
 var can_interact = false
+var player_ref: CharacterBody2D = null
 
 func _ready():
 	# se por foi aberta na outra cena, aplica animação de fechar e fechada
@@ -59,15 +60,17 @@ func _input(event: InputEvent) -> void:
 		match status:
 			# abre a porta
 			DoorState.closed:
+				if player_ref:
+					player_ref.pode_mover = false
 				status = DoorState.opening
 				anim.play("opening")
 				audio_opening.play()
 				await anim.animation_finished
 				if anim.animation == "opening":
 					status = DoorState.opened
-			# entra na porta e carrega a próxima cena
-			DoorState.opened:
+				# entra na porta e carrega a próxima cena
 				GameState.open_door(door_id)
+				player_ref.pode_mover = true
 				call_deferred("load_next_scene")
 			# qualquer outro estado (ignora)
 			_:
@@ -76,13 +79,16 @@ func _input(event: InputEvent) -> void:
 func load_next_scene():
 	get_tree().change_scene_to_file("res://scenes/" + next_level + ".tscn")
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	# se player entrou na área e a porta está fechada ou aberta ou abrindo (pode interagir)
 	if status == DoorState.closed or status == DoorState.opened or status == DoorState.opening:
+		if body is CharacterBody2D: # Verifica se é o player (ou use body.name == "Player")
+			player_ref = body
 		can_interact = true
 
 func _on_body_exited(_body: Node2D) -> void:
 	# saiu da área, não pode interagir
+	player_ref = null
 	can_interact = false
 
 func _on_door_unlocked(unlocked_id: String) -> void:
