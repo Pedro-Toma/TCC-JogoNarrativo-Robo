@@ -18,6 +18,9 @@ func _input(event):
 			Instructions.toggle_instructions()
 			return
 		toggle_pause()
+		return
+	elif not visible or Instructions.visible:
+		return
 	elif event is InputEventMouseMotion:
 		var focused_node = get_viewport().gui_get_focus_owner()
 		if focused_node:
@@ -26,12 +29,11 @@ func _input(event):
 		 event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
 		
 		if get_viewport().gui_get_focus_owner() == null:
-			$ButtonManager/Start.grab_focus()
+			$Control/ButtonManager/Resume.grab_focus()
 			get_viewport().set_input_as_handled()
 
 func toggle_pause():
 	var new_state = !get_tree().paused
-	
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	
 	if new_state:
@@ -48,8 +50,6 @@ func toggle_pause():
 		hide()
 		if get_tree().current_scene.name != "Menu":
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = false
 
 func _on_resume_pressed() -> void:

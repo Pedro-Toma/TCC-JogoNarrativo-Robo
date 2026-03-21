@@ -14,6 +14,8 @@ func _input(event):
 		var focused_node = get_viewport().gui_get_focus_owner()
 		if focused_node:
 			focused_node.release_focus()
+	elif not visible or Instructions.visible:
+		return
 	elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down") or \
 		 event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
 		
@@ -38,7 +40,14 @@ func _on_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/optional_tutorial.tscn")
 	
 func _on_instructions_pressed() -> void:
+	set_buttons_focus_mode(Control.FOCUS_NONE)
 	Instructions.toggle_instructions()
 
 func _on_instructions_closed():
+	set_buttons_focus_mode(Control.FOCUS_ALL)
 	$ButtonManager/Instructions.grab_focus()
+	
+func set_buttons_focus_mode(mode):
+	$ButtonManager/Start.focus_mode = mode
+	$ButtonManager/Quit.focus_mode = mode
+	$ButtonManager/Instructions.focus_mode = mode
