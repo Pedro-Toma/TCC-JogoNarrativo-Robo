@@ -5,6 +5,7 @@ var door_id: String = "phase_4"
 @onready var _004_plate: AnimatedSprite2D = $fase_004_plate
 @onready var player: CharacterBody2D = $Player
 @onready var computer: Area2D = $computer
+@onready var lock_removed: Sprite2D = $LockRemoved
 
 const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da sua cena
 
@@ -17,31 +18,31 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Bom trabalho, R.E.D. Os sistemas estão voltando à estabilidade. Seu desempenho está sendo essencial para o sucesso da missão.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Bellatrix... eu acessei os registros do Setor B.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	2: {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Foram medidas necessárias para manter a missão viável. Sem isso, perderíamos recursos demais no trajeto.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	3: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Você colocou a tripulação em risco.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	4: {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Eu preservei a única chance de sucesso da missão. Continue para a Sala 004, R.E.D. Ainda há sistemas que precisam ser restaurados.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}
 }
 
@@ -79,8 +80,9 @@ var dialog_data_2: Dictionary = {
 }
 
 func _ready() -> void:
-		
+	$computer.dialog_finished.connect(lock_removed.queue_free)
 	player.pode_mover = false
+	player.stop_all_sounds()
 	dialog_2_played = false
 	computer.dialog_finished.connect(run_dialog_2)
 	
@@ -96,6 +98,7 @@ func run_dialog_2():
 		return
 	_004_plate.play("transition")
 	player.pode_mover = false
+	player.stop_all_sounds()
 	
 	var new_dialog = DIALOG_SCREEN.instantiate()
 	new_dialog.data = dialog_data_2

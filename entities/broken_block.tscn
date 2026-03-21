@@ -58,7 +58,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bypwj"]
-size = Vector2(12, 1)
+size = Vector2(16, 1)
 
 [node name="brokenBlock" type="StaticBody2D"]
 z_index = -1

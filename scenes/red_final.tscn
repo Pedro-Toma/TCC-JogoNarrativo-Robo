@@ -8,7 +8,7 @@ story = Array[String](["R.E.D. manteve Bellatrix ativa e seguiu até a fonte de 
 Gabriel Fuentes de Freitas Yamashita
 Matheus Marçal Ramos de Oliveira
 Pedro Akira Cardoso Toma", "Coautora e Orientadora:
-Profa. Dra. Ana Grasielle Dionísio Corrêa", ""])
+Profa. Dra. Ana Grasielle Dionísio Corrêa"])
 
 [node name="Label" parent="." index="1"]
 text = "Red Final"

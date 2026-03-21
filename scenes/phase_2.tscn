@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dkngnt01n5hpb"]
+[gd_scene load_steps=19 format=4 uid="uid://dkngnt01n5hpb"]
 
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="1_efrw6"]
 [ext_resource type="TileSet" uid="uid://bhkgwg7fxrlyg" path="res://tiles/terrain.tres" id="2_ineln"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c7whty4b6x0r1" path="res://sprites/background/phase-2/3-dust-phase2.png" id="6_rn00m"]
 [ext_resource type="Texture2D" uid="uid://drklj1q37m67v" path="res://sprites/background/phase-2/4-planets-phase2.png" id="7_4iubq"]
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="8_ouowk"]
-[ext_resource type="PackedScene" uid="uid://dq7ecplmf70hp" path="res://entities/level_end.tscn" id="9_ucc0x"]
 [ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/floppy_disk.tscn" id="10_imk71"]
 [ext_resource type="PackedScene" uid="uid://bex4khrsw84mo" path="res://interactive_objects/door.tscn" id="11_g3y4m"]
 [ext_resource type="PackedScene" uid="uid://18k224a7edad" path="res://entities/space.tscn" id="12_hlfao"]
@@ -18,9 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://jevsfbgbs0fd" path="res://interactive_objects/leaf.tscn" id="16_mw0ff"]
 [ext_resource type="PackedScene" uid="uid://cpcxj4n2g2kda" path="res://interactive_objects/teleport.tscn" id="17_xbydp"]
 [ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="18_o03mf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbmo"]
-size = Vector2(20, 260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwoaa"]
 size = Vector2(564, 11)
@@ -71,14 +67,6 @@ motion_scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
 texture = ExtResource("7_4iubq")
 centered = false
-
-[node name="LevelEnd" parent="." instance=ExtResource("9_ucc0x")]
-position = Vector2(1036, 265)
-next_level = "tutorial"
-
-[node name="CollisionShape2D" parent="LevelEnd" index="0"]
-position = Vector2(114, -127)
-shape = SubResource("RectangleShape2D_ktbmo")
 
 [node name="FloppyDisk" parent="." instance=ExtResource("10_imk71")]
 position = Vector2(888, 120)
@@ -162,7 +150,6 @@ position = Vector2(961, 288)
 [node name="Player" parent="." instance=ExtResource("8_ouowk")]
 position = Vector2(63, 50)
 
-[editable path="LevelEnd"]
 [editable path="moving_platform"]
 [editable path="moving_platform4"]
 [editable path="moving_platform2"]

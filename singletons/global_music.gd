@@ -12,7 +12,10 @@ var playlists = {
 func play_music(music_name: String):
 	if stream == playlists[music_name] and playing:
 		return
-	
+	if music_name == "main":
+		volume_db = -15.0
+	else:
+		volume_db = -30.0
 	stream = playlists[music_name]
 	play()
 
@@ -24,13 +27,15 @@ func stop_music_fade_out(duration: float = 2.0):
 	tween.tween_property(self, "volume_db", -80.0, duration)
 	await tween.finished
 	stop()
-	volume_db = -15.0
 	
 func switch_music(music_name: String, duration: float = 1.5):
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(self, "volume_db", -80.0, duration)	
 	await tween.finished
 	stop()
-	volume_db = -15
+	if music_name == "main":
+		volume_db = -15.0
+	else:
+		volume_db = -20.0
 	stream = playlists[music_name]
 	play()

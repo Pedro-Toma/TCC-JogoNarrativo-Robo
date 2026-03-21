@@ -33,7 +33,7 @@ offset_top = 320.0
 offset_right = 582.0
 offset_bottom = 343.0
 theme_override_fonts/font = ExtResource("2_yjqpq")
-text = "Pressione E para Pular"
+text = "Pressione E para Prosseguir"
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

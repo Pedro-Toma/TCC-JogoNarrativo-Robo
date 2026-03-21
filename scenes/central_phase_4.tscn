@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dlnypnv04xead"]
+[gd_scene load_steps=35 format=4 uid="uid://dlnypnv04xead"]
 
 [ext_resource type="Script" uid="uid://bfoqrbi00o0g8" path="res://scripts/central_phase_4.gd" id="1_1w16v"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_0u6yv"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://w8dqwul6h8eg" path="res://sprites/003_phase_blue.png" id="13_ka1f6"]
 [ext_resource type="Texture2D" uid="uid://ds3dfd44o25m7" path="res://sprites/004_phase_red.png" id="14_etyw3"]
 [ext_resource type="Texture2D" uid="uid://c5688uqts250a" path="res://sprites/004_red_green.png" id="15_vkurc"]
+[ext_resource type="Texture2D" uid="uid://ckllkusefebq5" path="res://sprites/lock.png" id="16_0u6yv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8q4w"]
 atlas = ExtResource("14_etyw3")
@@ -192,26 +193,9 @@ next_level = "phase_4"
 position = Vector2(304, 272)
 decoration = true
 
-[node name="Player" parent="." instance=ExtResource("8_8p5cg")]
-position = Vector2(304, 274)
-
 [node name="computer" parent="." instance=ExtResource("9_d40dq")]
 position = Vector2(302, 116)
 unlock_door = "phase_4"
-
-[node name="moving_platform" parent="." instance=ExtResource("10_uonae")]
-position = Vector2(159, 113)
-time = 3
-
-[node name="Target" parent="moving_platform" index="1"]
-position = Vector2(0, 149)
-
-[node name="moving_platform2" parent="." instance=ExtResource("10_uonae")]
-position = Vector2(450, 262)
-time = 3
-
-[node name="Target" parent="moving_platform2" index="1"]
-position = Vector2(0, -149)
 
 [node name="fase_001_plate" type="Sprite2D" parent="."]
 z_index = -1
@@ -234,6 +218,27 @@ position = Vector2(566, 52)
 sprite_frames = SubResource("SpriteFrames_af33r")
 animation = &"transition"
 autoplay = "default"
+
+[node name="LockRemoved" type="Sprite2D" parent="."]
+position = Vector2(566, 82)
+texture = ExtResource("16_0u6yv")
+
+[node name="Player" parent="." instance=ExtResource("8_8p5cg")]
+position = Vector2(304, 274)
+
+[node name="moving_platform" parent="." instance=ExtResource("10_uonae")]
+position = Vector2(159, 113)
+time = 3
+
+[node name="Target" parent="moving_platform" index="1"]
+position = Vector2(0, 149)
+
+[node name="moving_platform2" parent="." instance=ExtResource("10_uonae")]
+position = Vector2(450, 262)
+time = 3
+
+[node name="Target" parent="moving_platform2" index="1"]
+position = Vector2(0, -149)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

@@ -1,6 +1,7 @@
 extends Area2D
 
 signal dialog_finished
+signal dialog_started
 
 var player_in_area = false
 var lines: Array[String]
@@ -13,6 +14,7 @@ var is_turning_on = false
 @onready var block_message: Sprite2D = $BlockMessage
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 @export var unlock_door: String = ""
 
 const central_1: Array[String] = [
@@ -96,6 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		interact_prompt.hide()
 		
 		DialogManager.start_dialog(global_position, lines)
+		dialog_started.emit()
 
 func _on_dialog_finished() -> void:
 	is_dialog_active = false
@@ -131,9 +134,6 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_area = false
 		interact_prompt.hide()
-		
-		#if not is_dialog_active && not already_interacted:
-		#	block_message.show()
 			
 		if is_dialog_active:
 			DialogManager.is_player_in_range = false

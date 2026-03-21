@@ -18,9 +18,8 @@ func _ready() -> void:
 	if camera and camera.has_method("apply_shake"):
 		await camera.apply_shake(5.0, 2.0)
 		await camera.apply_shake(10.0, 2.0)
+		player.go_to_locked_state("off")
 		await camera.apply_shake(15.0, 2.0)
-	
-	player.go_to_locked_state("off")
 	
 	black_screen.visible = true
 	var tween = create_tween()

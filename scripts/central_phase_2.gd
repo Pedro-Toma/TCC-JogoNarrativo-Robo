@@ -3,6 +3,7 @@ extends Node2D
 var door_id: String = "phase_2"
 @onready var _002_plate: AnimatedSprite2D = $fase_002_plate
 @onready var player: CharacterBody2D = $Player
+@onready var lock_removed: Sprite2D = $LockRemoved
 
 const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da sua cena
 
@@ -15,19 +16,20 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Muito bem, R.E.D. O sistema de energia foi restaurado, mas ainda temos muito trabalho pela frente.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Vá até o computador, abra a comporta da Sala 002 e analise tudo o que encontrou até agora.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 }
 
 func _ready() -> void:
-	
+	$computer.dialog_finished.connect(lock_removed.queue_free)
 	player.pode_mover = false
+	player.stop_all_sounds()
 	if GameState.has_signal("door_unlocked"):
 		GameState.door_unlocked.connect(_on_door_unlocked)
 	

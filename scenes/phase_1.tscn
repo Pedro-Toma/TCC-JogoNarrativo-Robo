@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://83v1uym3qorq"]
+[gd_scene load_steps=22 format=4 uid="uid://83v1uym3qorq"]
 
 [ext_resource type="Script" uid="uid://cdajem7ejefse" path="res://scripts/phase_1.gd" id="1_id5lc"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="1_lm84p"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://lecjasip2hq2" path="res://sprites/background/phase-1/2-nebulae-phase1.png" id="5_v2k2t"]
 [ext_resource type="Texture2D" uid="uid://5u2vta2p21pu" path="res://sprites/background/phase-1/4-planet-phase1.png" id="6_256p1"]
 [ext_resource type="Texture2D" uid="uid://c78jh82y0w8gf" path="res://sprites/background/phase-1/3-dust-phase1.png" id="7_auiil"]
-[ext_resource type="PackedScene" uid="uid://dq7ecplmf70hp" path="res://entities/level_end.tscn" id="8_gtuej"]
 [ext_resource type="PackedScene" uid="uid://18k224a7edad" path="res://entities/space.tscn" id="9_2tf4o"]
 [ext_resource type="PackedScene" uid="uid://mirrhf6qgo8s" path="res://entities/player.tscn" id="10_e2ktc"]
 [ext_resource type="PackedScene" uid="uid://q6gi1cvgf74m" path="res://interactive_objects/lightning.tscn" id="11_rfx62"]
@@ -20,9 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://bksuq1h2yxxu8" path="res://entities/broken_block.tscn" id="17_xrgri"]
 [ext_resource type="PackedScene" uid="uid://8erf510ss2te" path="res://interactive_objects/wrench.tscn" id="18_724c1"]
 [ext_resource type="PackedScene" uid="uid://chtlvft2letf" path="res://entities/broken_block_2.tscn" id="19_udfmj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbmo"]
-size = Vector2(20, 260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5tko"]
 size = Vector2(260, 20)
@@ -76,14 +72,6 @@ motion_scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
 texture = ExtResource("6_256p1")
 centered = false
-
-[node name="LevelEnd" parent="." instance=ExtResource("8_gtuej")]
-position = Vector2(1036, 265)
-next_level = "tutorial"
-
-[node name="CollisionShape2D" parent="LevelEnd" index="0"]
-position = Vector2(114, -127)
-shape = SubResource("RectangleShape2D_ktbmo")
 
 [node name="Space" parent="." instance=ExtResource("9_2tf4o")]
 position = Vector2(225, 309)
@@ -178,7 +166,7 @@ position = Vector2(66, 146)
 position = Vector2(102, 107)
 
 [node name="wrench" parent="." instance=ExtResource("18_724c1")]
-position = Vector2(805, 248)
+position = Vector2(744, 233)
 
 [node name="Player" parent="." instance=ExtResource("10_e2ktc")]
 position = Vector2(895, 34)
@@ -201,6 +189,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[editable path="LevelEnd"]
 [editable path="Space"]
 [editable path="moving_platform"]

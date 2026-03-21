@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://ch551uwyq6u65"]
+[gd_scene load_steps=37 format=4 uid="uid://ch551uwyq6u65"]
 
 [ext_resource type="Script" uid="uid://b2dkxp21xykth" path="res://scripts/central_phase_1.gd" id="1_e8yyu"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_0u3p6"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="15_ciumq"]
 [ext_resource type="PackedScene" uid="uid://gr7sg4rks14f" path="res://entities/help_signal.tscn" id="16_a6nb1"]
 [ext_resource type="PackedScene" uid="uid://dly6wg0icim8n" path="res://entities/help_signal_2.tscn" id="17_p5150"]
+[ext_resource type="Texture2D" uid="uid://ckllkusefebq5" path="res://sprites/lock.png" id="18_pmvtm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke1a8"]
 atlas = ExtResource("11_ru2xg")
@@ -194,27 +195,10 @@ next_level = "phase_1"
 position = Vector2(304, 272)
 decoration = true
 
-[node name="Player" parent="." instance=ExtResource("8_4nr0r")]
-position = Vector2(304, 274)
-
 [node name="computer" parent="." instance=ExtResource("9_50qlx")]
 z_index = -1
 position = Vector2(302, 116)
 unlock_door = "phase_1"
-
-[node name="moving_platform" parent="." instance=ExtResource("10_08tmx")]
-position = Vector2(159, 113)
-time = 3
-
-[node name="Target" parent="moving_platform" index="1"]
-position = Vector2(0, 149)
-
-[node name="moving_platform2" parent="." instance=ExtResource("10_08tmx")]
-position = Vector2(450, 262)
-time = 3
-
-[node name="Target" parent="moving_platform2" index="1"]
-position = Vector2(0, -149)
 
 [node name="Transition Layer" type="CanvasLayer" parent="."]
 
@@ -252,6 +236,39 @@ texture = ExtResource("13_a6nb1")
 z_index = -1
 position = Vector2(566, 52)
 texture = ExtResource("14_p5150")
+
+[node name="Lock" type="Sprite2D" parent="."]
+position = Vector2(39, 226)
+texture = ExtResource("18_pmvtm")
+
+[node name="Lock2" type="Sprite2D" parent="."]
+position = Vector2(39, 82)
+texture = ExtResource("18_pmvtm")
+
+[node name="Lock3" type="Sprite2D" parent="."]
+position = Vector2(566, 82)
+texture = ExtResource("18_pmvtm")
+
+[node name="LockRemoved" type="Sprite2D" parent="."]
+position = Vector2(566, 226)
+texture = ExtResource("18_pmvtm")
+
+[node name="Player" parent="." instance=ExtResource("8_4nr0r")]
+position = Vector2(304, 274)
+
+[node name="moving_platform" parent="." instance=ExtResource("10_08tmx")]
+position = Vector2(159, 113)
+time = 3
+
+[node name="Target" parent="moving_platform" index="1"]
+position = Vector2(0, 149)
+
+[node name="moving_platform2" parent="." instance=ExtResource("10_08tmx")]
+position = Vector2(450, 262)
+time = 3
+
+[node name="Target" parent="moving_platform2" index="1"]
+position = Vector2(0, -149)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 543.0

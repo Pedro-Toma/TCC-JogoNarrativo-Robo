@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyddbblk8xhx2"]
+
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="1_578pa"]
+[ext_resource type="Script" uid="uid://c6i4kapnpputv" path="res://scripts/optional_tutorial.gd" id="1_q421k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q421k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kbi2"]
+bg_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajy5u"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46iqq"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="OptionalTutorial" type="Node2D"]
+script = ExtResource("1_q421k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 600.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 60.0
+offset_right = 441.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_578pa")
+theme_override_font_sizes/font_size = 40
+text = "Jogar o Tutorial?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 175.0
+offset_top = 150.0
+offset_right = 425.0
+offset_bottom = 210.0
+theme_override_constants/separation = 50
+
+[node name="Yes" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_578pa")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_q421k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0kbi2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ajy5u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_46iqq")
+text = "Sim"
+
+[node name="No" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_578pa")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_q421k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0kbi2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ajy5u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_46iqq")
+text = "Não"
+
+[connection signal="pressed" from="HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="HBoxContainer/No" to="." method="_on_no_pressed"]

@@ -46,7 +46,7 @@ func intro_zoom(initial_zoom: Vector2 = Vector2(8.0, 8.0), duration: float = 2.0
 	tween.tween_interval(1)
 	await tween.finished
 
-func zoom_in(duration: float = 5.0):
+func zoom_in(duration: float = 3.0):
 	
 	var tween = create_tween()
 	tween.tween_interval(1) # espera 1 segundo

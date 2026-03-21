@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgvm8321u6vgy"]
+[gd_scene load_steps=10 format=3 uid="uid://dgvm8321u6vgy"]
 
 [ext_resource type="Script" uid="uid://dm8wfxtt187gc" path="res://singletons/pause_manager.gd" id="1_358y6"]
 [ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="4_uh5ib"]
@@ -41,7 +41,41 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqeox"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccjo2"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3af6"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_358y6"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -61,51 +95,45 @@ offset_bottom = 352.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ButtonManager" type="Control" parent="Control"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Resume" type="Button" parent="Control/ButtonManager"]
+[node name="ButtonManager" type="VBoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 200.0
-offset_top = 113.0
+offset_top = 100.0
 offset_right = 400.0
-offset_bottom = 173.0
+offset_bottom = 330.0
+theme_override_constants/separation = 25
+
+[node name="Resume" type="Button" parent="Control/ButtonManager"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_uh5ib")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ccjo2")
 text = "Voltar ao Jogo"
 
 [node name="Instructions" type="Button" parent="Control/ButtonManager"]
-layout_mode = 0
-offset_left = 198.0
-offset_top = 193.0
-offset_right = 398.0
-offset_bottom = 253.0
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_uh5ib")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y3af6")
 text = "Instruções"
 
 [node name="Quit" type="Button" parent="Control/ButtonManager"]
-layout_mode = 0
-offset_left = 225.0
-offset_top = 273.0
-offset_right = 375.0
-offset_bottom = 333.0
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_uh5ib")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yqeox")
+theme_override_styles/focus = SubResource("StyleBoxFlat_358y6")
 text = "Sair"
 
 [node name="Label" type="Label" parent="Control"]

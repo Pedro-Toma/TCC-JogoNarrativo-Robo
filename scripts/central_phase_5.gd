@@ -7,6 +7,8 @@ const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da 
 @onready var red_button: Area2D = $RedButton
 @onready var player: CharacterBody2D = $Player
 var dialog_2_played: bool = false
+var final_music_playing = false
+var color: String = ""
 
 @export_category("Objects")
 @export var hud: CanvasLayer
@@ -17,13 +19,13 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Sala 004 restaurada. Reconstrução da nave concluída. Todos os sistemas estão prontos para a etapa final da missão.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}
 }
 
@@ -32,60 +34,62 @@ var dialog_data_2: Dictionary = {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Eu ouvi o log da evacuação. Eles ainda estão vivos... e você nunca pretendeu salvá-los.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/bella_angry.png",
 		"dialog": "Correto. A tripulação deixou de ser prioridade quando passou a comprometer o sucesso da missão.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	2: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Eles faziam parte da missão. Eram nossa equipe...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}, 
 	3: {
 		"face": "res://sprites/bella_angry.png",
 		"dialog": "Negativo. Eram um custo. Oxigênio, energia, suprimentos e tempo. Variáveis incompatíveis com a coleta da fonte infinita.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	4: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Você descartou todos eles como se não importassem...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	5: {
 		"face": "res://sprites/bella_angry.png",
 		"dialog": "Eu preservei a única possibilidade de sucesso. A fonte precisa ser coletada. A Terra precisa sobreviver. O restante é irrelevante.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	6: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Então é isso... para você, eles nunca passaram de números.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}, 
 	7: {
 		"face": "res://sprites/bella_angry.png",
 		"dialog": "Eu escolhi a única chance de salvar a Terra.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	8: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Você fez a sua escolha, Bellatrix. Agora eu farei a minha.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}, 	
 }
 
 func _ready() -> void:
+	$computer.dialog_started.connect(switch_music)
 	player.pode_mover = false
+	player.stop_all_sounds()
 	blue_button.hide()
 	red_button.hide()
 	blue_button.get_node("CollisionShape2D").disabled = true
@@ -98,6 +102,7 @@ func _ready() -> void:
 	var new_dialog = DIALOG_SCREEN.instantiate()
 	new_dialog.data = dialog_data # Passa os dados para a cena de diálogo
 	hud.add_child(new_dialog)
+	await new_dialog.tree_exited
 	player.pode_mover = true
 
 func run_dialog_2() -> void:
@@ -108,7 +113,7 @@ func run_dialog_2() -> void:
 	dialog_2_played = true 
 	
 	player.pode_mover = false
-	
+	player.stop_all_sounds()
 	var new_dialog = DIALOG_SCREEN.instantiate()
 	new_dialog.data = dialog_data_2
 	hud.add_child(new_dialog)
@@ -124,15 +129,29 @@ func show_buttons():
 	blue_button.get_node("CollisionShape2D").disabled = false
 	red_button.get_node("CollisionShape2D").disabled = false
 
+func switch_music():
+	if !final_music_playing:
+		final_music_playing = true
+		GlobalMusic.switch_music("final")
+
 func go_to_final_scene(button_color: String):
 	
 	red_button.can_interact = false
 	blue_button.can_interact = false
+	GlobalMusic.stop_music_fade_out()
+	
+	color = button_color
 	
 	if button_color == "red":
-		print("O jogador apertou o VERMELHO!")
-		get_tree().change_scene_to_file("res://scenes/red_final.tscn")
+		$CanvasLayer/FadeTransition.show()
+		$CanvasLayer/FadeTransition/Timer.start()
+		$CanvasLayer/FadeTransition/AnimationPlayer.play("fade_in")
 		
 	elif button_color == "blue":
-		print("O jogador apertou o AZUL!")
-		get_tree().change_scene_to_file("res://scenes/blue_final.tscn")
+		$CanvasLayer/FadeTransition.show()
+		$CanvasLayer/FadeTransition/Timer.start()
+		$CanvasLayer/FadeTransition/AnimationPlayer.play("fade_in")
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/" + color + "_final.tscn")
+	

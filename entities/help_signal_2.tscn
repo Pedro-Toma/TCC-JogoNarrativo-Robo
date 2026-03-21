@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dly6wg0icim8n"]
+[gd_scene load_steps=8 format=3 uid="uid://dly6wg0icim8n"]
+
+[ext_resource type="Script" uid="uid://dianeahyckrwk" path="res://scripts/help_signal.gd" id="1_sl1kp"]
 
 [sub_resource type="Gradient" id="Gradient_7y6nw"]
 offsets = PackedFloat32Array(0, 0.21671827, 0.4613003, 0.635514)
@@ -49,7 +51,10 @@ _data = {
 &"pulse": SubResource("Animation_l6ygq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sl1kp"]
+
 [node name="HelpSignal2" type="Node2D"]
+script = ExtResource("1_sl1kp")
 
 [node name="Light" type="Sprite2D" parent="."]
 z_index = 20
@@ -60,3 +65,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_qv67u")
 }
 autoplay = "pulse"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_sl1kp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

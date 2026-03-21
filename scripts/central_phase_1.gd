@@ -4,8 +4,12 @@ extends Node2D
 @onready var transition_layer: CanvasLayer = $"Transition Layer"
 @onready var black_screen: ColorRect = $"Transition Layer/blackScreen"
 @onready var _001_plate: AnimatedSprite2D = $fase_001_plate
-var door_id: String = "phase_1"
+@onready var help_signal: Node2D = $SignalLayer/HelpSignal
+@onready var help_signal_2: Node2D = $SignalLayer/HelpSignal2
+@onready var computer: Area2D = $computer
+@onready var lock_removed: Sprite2D = $LockRemoved
 
+var door_id: String = "phase_1"
 
 const DIALOG_SCREEN = preload("res://entities/dialog_screen.tscn") # Caminho da sua cena
 
@@ -18,36 +22,41 @@ var dialog_data: Dictionary = {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "Olá, R.E.D. Seu núcleo de processamento está funcional. Você sofreu danos na colisão. Não force a memória agora e siga minhas instruções.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Bellatrix? O que aconteceu? Onde está a tripulação? A missão...",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	2: {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "A nave foi atingida por uma chuva de meteoritos não detectada. A estrutura foi comprometida, e a tripulação foi evacuada após a queda crítica do oxigênio.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	3: {
 		"face": "res://sprites/bella_face.png",
 		"dialog": "A missão ainda pode ser concluída, mas precisamos agir rápido. Vá até o computador, verifique seu sistema de memória e depois siga para a Sala 001 para restaurar a energia da nave.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	4: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Entendido!",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}
 }
 func _ready() -> void:
+	
+	$computer.dialog_finished.connect(help_signal_2.show_helper)
+	$computer.dialog_finished.connect(lock_removed.queue_free)
+	
 	GlobalMusic.play_music("main")
 	player.pode_mover = false
+	player.stop_all_sounds()
 	GameState.has_double_jump = false
 	GameState.has_wall_jump = false
 	player.has_wall_jump = false
@@ -66,6 +75,8 @@ func _ready() -> void:
 	if camera and camera.has_method("intro_zoom"):
 		await camera.intro_zoom()
 		
+	help_signal.show_helper()
+	
 	if GameState.has_signal("door_unlocked"):
 		GameState.door_unlocked.connect(_on_door_unlocked)
 	
