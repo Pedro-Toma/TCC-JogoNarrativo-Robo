@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bw8vfi5gf00ak"]
 
-[ext_resource type="PackedScene" uid="uid://m02uolqhguxc" path="res://scenes/intro.tscn" id="1_2u7j0"]
+[ext_resource type="PackedScene" uid="uid://m02uolqhguxc" path="res://scenes/text_scene.tscn" id="1_2u7j0"]
 
 [node name="Intro" instance=ExtResource("1_2u7j0")]
 next_scene = "menu"

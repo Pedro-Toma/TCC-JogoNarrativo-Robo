@@ -1,41 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://m02uolqhguxc"]
+[gd_scene load_steps=2 format=3 uid="uid://l781gs0eb62p"]
 
-[ext_resource type="Script" uid="uid://cm5ctv2xp02hl" path="res://scripts/intro.gd" id="1_ioskq"]
-[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="2_yjqpq"]
-[ext_resource type="AudioStream" uid="uid://btktnno0rir41" path="res://sounds/keyboard.mp3" id="3_4bx60"]
+[ext_resource type="PackedScene" uid="uid://m02uolqhguxc" path="res://scenes/text_scene.tscn" id="1_ioskq"]
 
-[node name="Intro" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_ioskq")
-next_scene = "tutorial"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 600.0
-offset_bottom = 352.0
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 599.0
-offset_bottom = 351.0
-theme_override_fonts/font = ExtResource("2_yjqpq")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Skip" type="Label" parent="."]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 320.0
-offset_right = 582.0
-offset_bottom = 343.0
-theme_override_fonts/font = ExtResource("2_yjqpq")
-text = "Pressione E para Prosseguir"
-horizontal_alignment = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4bx60")
-volume_db = -10.0
+[node name="Intro" instance=ExtResource("1_ioskq")]
+variable_target = true

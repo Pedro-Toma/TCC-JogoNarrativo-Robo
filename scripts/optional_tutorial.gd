@@ -5,10 +5,12 @@ func _ready() -> void:
 	$HBoxContainer/Yes.grab_focus()
 
 func _on_yes_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+	GameState.skip_tutorial = false
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _on_no_pressed() -> void:
+	GameState.skip_tutorial = true
 	GameState.fase_central_atual += 1
-	get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

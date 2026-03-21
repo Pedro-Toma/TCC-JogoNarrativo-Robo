@@ -51,31 +51,31 @@ var dialog_data_2: Dictionary = {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "...",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	1: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Eu vi os registros, Bellatrix. A sabotagem do oxigênio, o bloqueio dos comandos... foi tudo planejado por você.",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	2: {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Foram decisões necessárias para o sucesso da missão. Mas antes disso a nave ainda precisa ser reconstruída.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	3: {
 		"face": "res://sprites/red_face.png",
 		"dialog": "Depois de tudo isso, você ainda espera que eu siga suas ordens?",
 		"title": "R.E.D.",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	},
 	4: {
 		"face": "res://sprites/bella_neutral.png",
 		"dialog": "Espero que você compreenda a prioridade da missão. Restaure a Sala 004, R.E.D.",
 		"title": "Bellatrix",
-		"subtitle": "Pressione E para pular"
+		"subtitle": "Pressione E para prosseguir"
 	}
 }
 

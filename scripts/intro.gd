@@ -6,6 +6,7 @@ extends Control
 @export var space_time = 0.1
 @export var between_sentences_time = 1.0
 @export var next_scene: String
+@export var variable_target: bool
 @onready var label = $Label
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
@@ -98,6 +99,11 @@ func next_sentence():
 func go_to_game():
 	if next_scene == "":
 		return
+	if variable_target:
+		if GameState.skip_tutorial:
+			next_scene = "cutscene"
+		else:
+			next_scene = "tutorial"
 	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
 	
 func _input(event):

@@ -19,6 +19,7 @@ var has_double_jump = false
 var has_wall_jump = false
 var fase_central_atual = 0
 var first_time_playing = true
+var skip_tutorial = false
 
 # função para registrar que uma porta foi aberta
 func open_door(door_id: String):

@@ -35,7 +35,7 @@ func _on_quit_pressed() -> void:
 func _on_timer_timeout() -> void:
 	if GameState.first_time_playing:
 		GameState.first_time_playing = false
-		get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+		get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/optional_tutorial.tscn")
 	
