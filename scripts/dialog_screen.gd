@@ -13,6 +13,8 @@ var data: Dictionary = {} # Dicionário que receberá os dados do diálogo
 
 func _ready():
 	initialize_dialog()
+	dialog_label.focus_mode = Control.FOCUS_ALL
+	dialog_label.grab_focus()
 
 func initialize_dialog():
 	# Atualiza nome, texto e imagem baseados no ID atual
@@ -26,7 +28,7 @@ func initialize_dialog():
 	
 	# Loop para exibir as letras gradualmente
 	while dialog_label.visible_ratio < 1:
-		await get_tree().create_timer(step).timeout
+		await get_tree().create_timer(step, false).timeout
 		dialog_label.visible_characters += 1
 
 func _process(_delta):

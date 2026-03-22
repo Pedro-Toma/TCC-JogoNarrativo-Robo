@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tlk8vmwo2t2d"]
+[gd_scene load_steps=6 format=3 uid="uid://tlk8vmwo2t2d"]
 
 [ext_resource type="Script" uid="uid://boa0i2766jm46" path="res://scripts/dialog_screen.gd" id="1_t2e62"]
 [ext_resource type="Texture2D" uid="uid://cbbdyvxge5xoq" path="res://sprites/bella_face.png" id="2_8ryl4"]
@@ -9,6 +9,9 @@ line_spacing = 0.0
 font = ExtResource("3_8kmho")
 font_size = 20
 shadow_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxn6l"]
+bg_color = Color(0, 0, 0, 0)
 
 [node name="DialogScreen" type="Control" node_paths=PackedStringArray("name_label", "dialog_label", "face_rect", "subtitle_label")]
 custom_minimum_size = Vector2(320, 60)
@@ -85,8 +88,10 @@ text = "Pressione Enter para pular"
 [node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 2
 mouse_force_pass_scroll_events = false
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_8kmho")
+theme_override_styles/focus = SubResource("StyleBoxFlat_oxn6l")
 text = "hvdawjhgdva"
 scroll_following_visible_characters = true
